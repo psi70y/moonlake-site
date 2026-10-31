@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoonLake – A native client for your media server</title>
+  <meta name="description" content="MoonLake is an iPhone, iPad and Mac app for SABnzbd, Sonarr, Radarr, Tautulli and Newznab indexers.">
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <img src="icon.png" alt="" width="96" height="96">
+      <div>
+        <h1>MoonLake</h1>
+        <p class="tagline muted">A native client for your media server.</p>
+      </div>
+    </header>
+
+    <p>MoonLake brings <strong>SABnzbd, Sonarr, Radarr and Tautulli</strong>, plus your <strong>Newznab indexers</strong> such as NZBGeek and nzb.life, together in one app for <strong>iPhone, iPad, Mac and the foldable iPhone Duo</strong>. It talks directly to your own servers, at home or away, with no account, no cloud and no tracking.</p>
+    <p>MoonLake is inspired by <a href="https://github.com/jagandeepbrar/lunasea">LunaSea</a>, rebuilt from scratch as a native app.</p>
+
+    <p class="chips"><span>SABnzbd</span><span>Sonarr</span><span>Radarr</span><span>Tautulli</span><span>Newznab indexers</span><span>Multiple instances</span><span>Home &amp; Away addresses</span><span>iPhone Duo</span></p>
+
+    <nav class="toc">
+      <strong>Contents</strong>
+      <ol>
+        <li><a href="#setup">Getting started</a></li>
+        <li><a href="#instances">Multiple instances</a></li>
+        <li><a href="#addresses">Home &amp; Away addresses</a></li>
+        <li><a href="#navigating">Getting around</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sabnzbd">SABnzbd</a></li>
+        <li><a href="#sonarr">Sonarr</a></li>
+        <li><a href="#radarr">Radarr</a></li>
+        <li><a href="#interactive">Interactive search</a></li>
+        <li><a href="#tautulli">Tautulli</a></li>
+        <li><a href="#indexers">Indexer search</a></li>
+        <li><a href="#duo">iPhone Duo, iPad &amp; Mac</a></li>
+        <li><a href="#gestures">Gesture cheat sheet</a></li>
+        <li><a href="#faq">Questions</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="setup">Getting started</h2>
+    <ol>
+      <li>Open <strong>Settings</strong> in the sidebar. Each service has its own section.</li>
+      <li>Tap the service to set up, or <strong>Add Sonarr</strong>, <strong>Add Radarr</strong> and so on.</li>
+      <li>Give it a <strong>Name</strong> if you like. Leave it blank to use the service's name.</li>
+      <li>Enter its addresses (see <a href="#addresses">Home &amp; Away</a>). <code>192.168.1.10:8989</code> works; MoonLake adds <code>http://</code> for you. Addresses with a path, such as <code>https://example.com/sonarr</code>, are fine for reverse proxies.</li>
+      <li>Enter the <strong>API Key</strong>. Each service's settings say where to find it, for example <em>Settings → General → Security → API Key</em> in Sonarr and Radarr.</li>
+      <li>Tap <strong>Test Connection</strong>. MoonLake checks each address and shows the service's version, or a clear reason it couldn't connect, such as a timeout, the wrong key, an untrusted certificate, or Radarr entered where Sonarr should be. A successful test turns on <strong>Show in Sidebar</strong>.</li>
+    </ol>
+    <p>API keys and passwords are stored in the Keychain on your device.</p>
+    <figure><img src="images/settings.png" alt="Settings, with a section for each service and its instances"><figcaption>Settings: a section for each service, with its instances.</figcaption></figure>
+
+    <h3>Open at Launch</h3>
+    <p><em>Settings → Open at Launch</em> picks the screen MoonLake opens on: <strong>Home</strong> (the default), <strong>Search</strong>, any service in the sidebar, or <strong>Last Used</strong> to reopen wherever you were.</p>
+
+    <h2 id="instances">Multiple instances</h2>
+    <p>You can add as many instances of any service as you run, for example <strong>Sonarr</strong> and <strong>Sonarr 4K</strong>, <strong>Radarr Anime</strong>, two SABnzbd servers,, or Tautulli for two Plex servers.</p>
+    <ul>
+      <li><strong>Add:</strong> <em>Settings → Add Sonarr</em> (or any service). New instances are numbered until you name them.</li>
+      <li><strong>Rename:</strong> open the instance in Settings and change <strong>Name</strong>.</li>
+      <li><strong>Delete:</strong> <span class="gesture">swipe left</span> on the instance in Settings, or touch and hold it. MoonLake forgets its addresses and key; nothing changes on the server.</li>
+      <li>Each enabled instance gets its own row in the sidebar, under its name.</li>
+      <li><strong>Home</strong> combines every Sonarr and Radarr instance. With more than one, each row shows a small tag naming its instance.</li>
+      <li><strong>Indexers</strong> work the same way: add NZBGeek and nzb.life as separate indexers and search them together.</li>
+    </ul>
+
+    <h2 id="addresses">Home &amp; Away addresses</h2>
+    <p>Each server has two addresses:</p>
+    <table>
+      <tr><th>Home</th><td>The address on your home network, e.g. <code>http://192.168.1.10:8989</code>. MoonLake tries this first, so it's fast at home.</td></tr>
+      <tr><th>Away</th><td>An address that works from anywhere, through a reverse proxy or a port forwarded on your modem, e.g. <code>https://sonarr.example.com</code>. Used when Home can't be reached.</td></tr>
+    </table>
+    <p>MoonLake remembers whichever address worked, and checks Home again whenever your network changes, for example when you get home and join Wi-Fi. Fill in just one if that's all you need. Indexers have a single <strong>API URL</strong>, since they're always on the internet.</p>
+    <p class="note">Over plain <code>http://</code>, API keys travel unencrypted. For an Away address, use <code>https://</code> through a reverse proxy if you can; MoonLake warns when an Away address is plain HTTP.</p>
+
+    <h2 id="navigating">Getting around</h2>
+    <ul>
+      <li><strong>Sidebar:</strong> Home, Search (once an indexer is set up), each enabled service instance, and Settings. On a narrow screen it's the first screen; tap back to return to it.</li>
+      <li><strong>Tabs:</strong> services with several views (Queue / History, Library / Calendar / Queue, Activity / Users / History / Stats) switch with the control at the top. MoonLake remembers the tab you used.</li>
+      <li><strong>Settings gear:</strong> the ⚙︎ on any service screen opens that instance's settings.</li>
+      <li><strong>Pull down</strong> to refresh any list. Busy lists (queues, activity) also refresh themselves while they're on screen.</li>
+      <li><strong>Notices:</strong> after an action, a short message at the bottom confirms it, e.g. "Searching for The Show", or explains what went wrong.</li>
+    </ul>
+
+    <h2 id="home">Home</h2>
+    <p>Home shows <strong>this week's episodes and movies</strong> from all your Sonarr and Radarr instances, day by day, as LunaSea's dashboard did.</p>
+    <figure><img src="images/home.png" alt="Home, with the week strip and a list of this week's releases"><figcaption>Home: the week strip and this week's releases, with artwork behind each row.</figcaption></figure>
+    <ul>
+      <li><strong>Week strip:</strong> <strong>‹ ›</strong> change week and <strong>Today</strong> jumps back. Dots under each day show what's on: <span style="color:#5856D6">indigo</span> for episodes, <span style="color:#FF9500">orange</span> for movies. Tap a day to jump to it.</li>
+      <li><strong>Rows:</strong> episodes by air time, then cinema, digital and physical movie releases. Each row has the show's or movie's artwork faded behind it.</li>
+      <li><span class="gesture">Swipe right</span> on a row for <strong>Interactive</strong> or <strong>Automatic</strong> search. A full swipe opens interactive search.</li>
+      <li><strong>Tap</strong> a row to open the series or movie.</li>
+      <li>Items already downloading show a <strong>progress ring</strong>; items waiting to import show a <strong>tray</strong>.</li>
+    </ul>
+
+    <h2 id="sabnzbd">SABnzbd</h2>
+    <figure><img src="images/sabnzbd-queue.png" alt="SABnzbd queue with speed, progress and priorities"><figcaption>SABnzbd's queue: speed, time left, progress and priority badges.</figcaption></figure>
+    <h3>Queue</h3>
+    <ul>
+      <li>The header shows Downloading / Paused / Idle, the speed, size and time left, and whether you're on the Home or Away address. It refreshes every 2 seconds.</li>
+      <li>The toolbar button <strong>pauses or resumes the whole queue</strong>.</li>
+      <li><span class="gesture">Swipe right</span> on a job: <strong>Pause</strong> or <strong>Resume</strong>.</li>
+      <li><span class="gesture">Swipe left</span>: <strong>Delete</strong>, after a confirmation. This also removes whatever it downloaded so far.</li>
+      <li><span class="gesture">Touch and hold</span> for <strong>Move to Top</strong>, <strong>Move to Bottom</strong>, a <strong>Priority</strong> menu (Force, High, Normal, Low), and Delete. Non-normal priorities show a badge.</li>
+      <li><strong>Reorder:</strong> touch and hold a job and drag it, or tap <strong>Edit</strong> for drag handles. SABnzbd always downloads higher priorities first, so raise a job's priority to make it finish sooner than lower-priority jobs.</li>
+    </ul>
+    <h3>History</h3>
+    <ul>
+      <li>The last 50 jobs: ✅ completed, ❌ failed (with SABnzbd's reason), ⚙︎ still being processed.</li>
+      <li><span class="gesture">Swipe left</span>: <strong>Remove</strong> from history. For a failed job this also deletes its leftover files; completed downloads are never touched.</li>
+    </ul>
+
+    <h2 id="sonarr">Sonarr</h2>
+    <figure><img src="images/sonarr-series.png" alt="A Sonarr series with seasons and episode status icons"><figcaption>A series: monitoring, seasons and episode status.</figcaption></figure>
+    <h3>Library</h3>
+    <ul>
+      <li>Searchable, with posters and "45 of 50 episodes". <strong>Unmonitored</strong> series have greyed-out, faded posters.</li>
+      <li><span class="gesture">Swipe right</span>: <strong>Automatic Search</strong> for the series.</li>
+      <li><span class="gesture">Swipe left</span>: <strong>Monitor</strong> or <strong>Unmonitor</strong>.</li>
+    </ul>
+    <h3>Series</h3>
+    <ul>
+      <li>Poster, network, status, size, next airing and overview, and <strong>IMDb</strong> and <strong>TheTVDB</strong> links.</li>
+      <li>A <strong>Monitored</strong> switch and <strong>Automatic Search: Monitored Episodes</strong>.</li>
+      <li>The <strong>⋯</strong> next to each season: <strong>Interactive Search</strong> (season packs included), <strong>Automatic Search</strong>, and <strong>Monitor / Unmonitor</strong> the season.</li>
+      <li>Episodes: <span class="gesture">swipe right</span> for <strong>Interactive</strong> or <strong>Automatic</strong> search, <span class="gesture">swipe left</span> to <strong>Monitor</strong> or <strong>Unmonitor</strong>.</li>
+    </ul>
+    <table>
+      <tr><th>Icon</th><th>Means</th></tr>
+      <tr><td>✅ green tick</td><td>Downloaded</td></tr>
+      <tr><td>Teal progress ring</td><td>Downloading now (orange if there's a problem)</td></tr>
+      <tr><td>Tray</td><td>Downloaded, waiting to import</td></tr>
+      <tr><td>❗ red</td><td>Missing: aired and monitored, but not downloaded</td></tr>
+      <tr><td>🕘 clock</td><td>Not aired yet</td></tr>
+      <tr><td>Crossed-out bookmark</td><td>Unmonitored</td></tr>
+    </table>
+    <h3>Calendar and Queue</h3>
+    <ul>
+      <li><strong>Calendar:</strong> yesterday to two weeks ahead, by day. <span class="gesture">Swipe right</span> to search; tap to open the series.</li>
+      <li><strong>Queue:</strong> progress, import stage and any warning, e.g. "No files found are eligible for import". <span class="gesture">Swipe left</span>: <strong>Remove</strong> or <strong>Remove and Blocklist</strong>, which also removes it from the download client.</li>
+      <li><strong>⋯ menu:</strong> <strong>Search All Missing Episodes</strong> (asks first) and <strong>Refresh All Series</strong>.</li>
+    </ul>
+
+    <h2 id="radarr">Radarr</h2>
+    <ul>
+      <li><strong>Library:</strong> searchable, with each movie's status: Downloaded, Missing, In Cinemas, Announced, or "Downloading 45%" while in the queue. Unmonitored movies are dimmed. <span class="gesture">Swipe right</span> for <strong>Interactive</strong> or <strong>Automatic</strong> search, <span class="gesture">swipe left</span> to <strong>Monitor</strong> or <strong>Unmonitor</strong>.</li>
+      <li><strong>Movie:</strong> poster, runtime, overview, <strong>Monitored</strong> switch, <strong>Interactive Search</strong>, <strong>Automatic Search</strong>, release dates, file quality and size, and <strong>IMDb</strong> and <strong>The Movie Database</strong> links.</li>
+      <li><strong>Calendar:</strong> cinema, digital and physical releases from a week ago to two months ahead.</li>
+      <li><strong>Queue</strong> and the <strong>⋯ menu</strong> work as in Sonarr.</li>
+    </ul>
+
+    <h2 id="interactive">Interactive search</h2>
+    <p>Interactive search lists every release your indexers found for an episode, season or movie, so you choose exactly what to download, like the 👤 button in Sonarr's and Radarr's web interfaces.</p>
+    <figure><img src="images/interactive-search.png" alt="Interactive search results with quality, size and rejection reasons"><figcaption>Interactive search: quality, size, age, indexer and rejection reasons.</figcaption></figure>
+    <ul>
+      <li>Releases are in Sonarr's or Radarr's own order, best match first, with quality, season-pack badge, custom format score, size, age, seeders and indexer.</li>
+      <li><strong>Rejected</strong> releases are greyed out with the reasons in red.</li>
+      <li><strong>Search field:</strong> filter by title, quality, indexer or language. Every word must match, so <code>1080p x265</code> finds releases with both.</li>
+      <li><strong>Sort and Filter:</strong> Best Match, Newest, Largest, Most Seeders; a <strong>Quality</strong> filter; <strong>Hide Rejected</strong>; <strong>Clear Filters</strong>.</li>
+      <li><strong>Tap</strong> a release to download it, after a confirmation. For a rejected release you can choose <strong>Download Anyway</strong>. A green tick marks what you've sent.</li>
+    </ul>
+
+    <h2 id="tautulli">Tautulli</h2>
+    <figure><img src="images/tautulli-activity.png" alt="Tautulli activity with streams in progress"><figcaption>Activity: who's watching what, and how.</figcaption></figure>
+    <ul>
+      <li><strong>Activity:</strong> each stream's poster, user and player, progress, <strong>Direct Play / Direct Stream / Transcode (4K → 720p)</strong>, quality, bandwidth and LAN/WAN, refreshed every 5 seconds. <span class="gesture">Swipe left</span>: <strong>Stop</strong> the stream, with an optional message to the viewer (needs Plex Pass).</li>
+      <li><strong>Users:</strong> everyone on your server with avatar, last seen, last played, plays and watch time. Tap a user for their watch time over the last day, week, month and all time, the players they use, and their recent history.</li>
+      <li><strong>History:</strong> the last 50 plays, with watch time and watched status.</li>
+      <li><strong>Stats:</strong> most watched and most popular TV and movies, recently watched, most active users, platforms and libraries, and most concurrent streams. The <strong>Period</strong> menu covers the last 7, 30 or 90 days, or the last year.</li>
+    </ul>
+    <figure><img src="images/tautulli-stats.png" alt="Tautulli statistics"><figcaption>Stats: your server's top titles, users and platforms.</figcaption></figure>
+
+    <h2 id="indexers">Indexer search</h2>
+    <p>Add your Newznab indexers, such as NZBGeek or nzb.life, in <em>Settings → Add Indexer</em> with their <strong>API URL</strong> (e.g. <code>https://api.nzbgeek.info</code>) and API key. Then use <strong>Search</strong> in the sidebar.</p>
+    <figure><img src="images/indexer-categories.png" alt="An indexer's categories"><figcaption>Browse an indexer by category, as in LunaSea.</figcaption></figure>
+    <ul>
+      <li><strong>Browse:</strong> tap an indexer to see its categories (All, then Movies, TV, Audio and their subcategories such as HD and UHD). Tap one to see its <strong>newest releases</strong>; the search field then searches inside it.</li>
+      <li><strong>Search All Indexers:</strong> search every indexer at once, with <strong>Category</strong> and <strong>Indexers</strong> menus.</li>
+      <li>Results show size, age, grabs and category, and which indexer they came from. Sort by Newest, Largest or Most Grabbed; <strong>Load More</strong> fetches the next page.</li>
+      <li><strong>Tap</strong>, or <span class="gesture">swipe right</span>, to <strong>Send to SABnzbd</strong>: choose the SABnzbd instance, one of its <strong>categories</strong> and a <strong>priority</strong>. SABnzbd fetches the NZB straight from the indexer.</li>
+      <li><span class="gesture">Touch and hold</span>: <strong>Open on Indexer</strong> opens the release's page.</li>
+    </ul>
+    <figure><img src="images/send-to-sabnzbd.png" alt="Sending a result to SABnzbd"><figcaption>Send to SABnzbd, with category and priority.</figcaption></figure>
+    <p class="muted">Indexers limit how many searches and grabs you can make a day. MoonLake only searches when you ask it to.</p>
+
+    <h2 id="duo">iPhone Duo, iPad &amp; Mac</h2>
+    <ul>
+      <li><strong>Unfolded</strong> (and on iPad and Mac): the sidebar and the content side by side. <strong>Folded</strong>: one screen at a time.</li>
+      <li><strong>Book posture:</strong> hold the Duo half open and sideways, and the sidebar fills the left page with the content on the right, so nothing sits on the crease.</li>
+      <li><strong>Folding and unfolding keep your place:</strong> the series you're on, the tab you're in.</li>
+    </ul>
+    <figure><img src="images/duo-book.png" alt="MoonLake on iPhone Duo in book posture"><figcaption>Book posture: sidebar on the left page, content on the right.</figcaption></figure>
+
+    <h2 id="gestures">Gesture cheat sheet</h2>
+    <table>
+      <tr><th>Where</th><th>Swipe right</th><th>Swipe left</th><th>Touch and hold</th></tr>
+      <tr><td>Home</td><td>Interactive · Automatic search</td><td>–</td><td>Same searches</td></tr>
+      <tr><td>SABnzbd queue</td><td>Pause · Resume</td><td>Delete</td><td>Move to Top/Bottom · Priority · Drag to reorder</td></tr>
+      <tr><td>SABnzbd history</td><td>–</td><td>Remove</td><td>Remove</td></tr>
+      <tr><td>Sonarr library</td><td>Automatic search</td><td>Monitor · Unmonitor</td><td>Both</td></tr>
+      <tr><td>Sonarr episodes, calendar</td><td>Interactive · Automatic search</td><td>Monitor · Unmonitor (episodes)</td><td>All of these</td></tr>
+      <tr><td>Radarr library, calendar</td><td>Interactive · Automatic search</td><td>Monitor · Unmonitor</td><td>All of these</td></tr>
+      <tr><td>Sonarr/Radarr queue</td><td>–</td><td>Remove · Remove and Blocklist</td><td>Remove</td></tr>
+      <tr><td>Tautulli activity</td><td>–</td><td>Stop stream</td><td>Stop stream</td></tr>
+      <tr><td>Indexer results</td><td>Send to SABnzbd</td><td>–</td><td>Send · Open on Indexer</td></tr>
+      <tr><td>Settings instances</td><td>–</td><td>Delete instance</td><td>Delete instance</td></tr>
+    </table>
+    <p class="muted">A full swipe runs the first action, for example opening interactive search.</p>
+
+    <h2 id="faq">Questions</h2>
+    <h3>Where do I get MoonLake?</h3>
+    <p>MoonLake is coming to the App Store for iPhone, iPad and Mac, for iOS 27 and macOS 27 or later.</p>
+    <h3>It can't connect</h3>
+    <p>Run <strong>Test Connection</strong> in the instance's settings: it says what's wrong for each address. At home, check that MoonLake has <em>Local Network</em> access in <em>Settings → Privacy &amp; Security</em>. Away, check that your reverse proxy or port forward reaches the service.</p>
+
+    <h2 id="privacy">Privacy</h2>
+    <p>MoonLake has no account, no analytics and no servers of its own. It connects only to the servers and indexers you add, and keeps their addresses on your device and their keys in the Keychain. Posters and images come from your own Sonarr, Radarr and Tautulli; user avatars come from Plex.</p>
+
+    <p class="muted">© 2026 psi70y. Inspired by LunaSea by Jagandeep Brar. MoonLake isn't affiliated with SABnzbd, Sonarr, Radarr, Tautulli, Plex or any indexer. Contact: <a href="mailto:psi70y@gmail.com">psi70y@gmail.com</a>.</p>
+  </main>
+</body>
+</html>
