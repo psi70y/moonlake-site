@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoonLake – A native client for your media server</title>
-  <meta name="description" content="MoonLake is an iPhone, iPad and Mac app for SABnzbd, Sonarr, Radarr, Tautulli and Newznab indexers.">
+  <meta name="description" content="MoonLake is an iPhone, iPad and Mac app for SABnzbd, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr and Newznab indexers.">
   <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,10 +18,10 @@
       </div>
     </header>
 
-    <p>MoonLake brings <strong>SABnzbd, Sonarr, Radarr and Tautulli</strong>, plus your <strong>Newznab indexers</strong> such as NZBGeek and nzb.life, together in one app for <strong>iPhone, iPad, Mac and the foldable iPhone Duo</strong>. It talks directly to your own servers, at home or away, with no account, no cloud and no tracking.</p>
+    <p>MoonLake brings <strong>SABnzbd, Sonarr, Radarr, Tautulli, Prowlarr and Bazarr</strong>, plus your <strong>Newznab indexers</strong> such as NZBGeek and nzb.life, together in one app for <strong>iPhone, iPad, Mac and the foldable iPhone Duo</strong>. It talks directly to your own servers, at home or away, with no account, no cloud and no tracking.</p>
     <p>MoonLake is inspired by <a href="https://github.com/jagandeepbrar/lunasea">LunaSea</a>, rebuilt from scratch as a native app.</p>
 
-    <p class="chips"><span>SABnzbd</span><span>Sonarr</span><span>Radarr</span><span>Tautulli</span><span>Newznab indexers</span><span>Multiple instances</span><span>Home &amp; Away addresses</span><span>iPhone Duo</span></p>
+    <p class="chips"><span>SABnzbd</span><span>Sonarr</span><span>Radarr</span><span>Tautulli</span><span>Prowlarr</span><span>Bazarr</span><span>Newznab indexers</span><span>Multiple instances</span><span>Home &amp; Away addresses</span><span>iPhone Duo</span></p>
 
     <nav class="toc">
       <strong>Contents</strong>
@@ -37,6 +37,8 @@
         <li><a href="#interactive">Interactive search</a></li>
         <li><a href="#tautulli">Tautulli</a></li>
         <li><a href="#indexers">Indexer search</a></li>
+        <li><a href="#prowlarr">Prowlarr</a></li>
+        <li><a href="#bazarr">Bazarr</a></li>
         <li><a href="#duo">iPhone Duo, iPad &amp; Mac</a></li>
         <li><a href="#gestures">Gesture cheat sheet</a></li>
         <li><a href="#faq">Questions</a></li>
@@ -60,7 +62,7 @@
     <p><em>Settings → Open at Launch</em> picks the screen MoonLake opens on: <strong>Home</strong> (the default), <strong>Search</strong>, any service in the sidebar, or <strong>Last Used</strong> to reopen wherever you were.</p>
 
     <h2 id="instances">Multiple instances</h2>
-    <p>You can add as many instances of any service as you run, for example <strong>Sonarr</strong> and <strong>Sonarr 4K</strong>, <strong>Radarr Anime</strong>, two SABnzbd servers,, or Tautulli for two Plex servers.</p>
+    <p>You can add as many instances of any service as you run, for example <strong>Sonarr</strong> and <strong>Sonarr 4K</strong>, <strong>Radarr Anime</strong>, two SABnzbd servers, or Tautulli for two Plex servers.</p>
     <ul>
       <li><strong>Add:</strong> <em>Settings → Add Sonarr</em> (or any service). New instances are numbered until you name them.</li>
       <li><strong>Rename:</strong> open the instance in Settings and change <strong>Name</strong>.</li>
@@ -113,6 +115,7 @@
     <h3>History</h3>
     <ul>
       <li>The last 50 jobs: ✅ completed, ❌ failed (with SABnzbd's reason), ⚙︎ still being processed.</li>
+      <li><strong>Search</strong> your whole history by name.</li>
       <li><span class="gesture">Swipe left</span>: <strong>Remove</strong> from history. For a failed job this also deletes its leftover files; completed downloads are never touched.</li>
     </ul>
 
@@ -175,7 +178,7 @@
     <ul>
       <li><strong>Activity:</strong> each stream's poster, user and player, progress, <strong>Direct Play / Direct Stream / Transcode (4K → 720p)</strong>, quality, bandwidth and LAN/WAN, refreshed every 5 seconds. <span class="gesture">Swipe left</span>: <strong>Stop</strong> the stream, with an optional message to the viewer (needs Plex Pass).</li>
       <li><strong>Users:</strong> everyone on your server with avatar, last seen, last played, plays and watch time. Tap a user for their watch time over the last day, week, month and all time, the players they use, and their recent history.</li>
-      <li><strong>History:</strong> the last 50 plays, with watch time and watched status.</li>
+      <li><strong>History:</strong> the last 50 plays, with watch time and watched status. The search field searches your whole history by title or user.</li>
       <li><strong>Stats:</strong> most watched and most popular TV and movies, recently watched, most active users, platforms and libraries, and most concurrent streams. The <strong>Period</strong> menu covers the last 7, 30 or 90 days, or the last year.</li>
     </ul>
     <figure><img src="images/tautulli-stats.png" alt="Tautulli statistics"><figcaption>Stats: your server's top titles, users and platforms.</figcaption></figure>
@@ -192,6 +195,23 @@
     </ul>
     <figure><img src="images/send-to-sabnzbd.png" alt="Sending a result to SABnzbd"><figcaption>Send to SABnzbd, with category and priority.</figcaption></figure>
     <p class="muted">Indexers limit how many searches and grabs you can make a day. MoonLake only searches when you ask it to.</p>
+
+    <h2 id="prowlarr">Prowlarr</h2>
+    <p>Add Prowlarr in <em>Settings → Add Prowlarr</em> with its address (port 9696) and API key from <em>Settings → General → Security</em>.</p>
+    <ul>
+      <li><strong>Indexers:</strong> every indexer with its protocol and priority. Indexers Prowlarr has paused after failures say when they'll be retried. <span class="gesture">Swipe right</span> to <strong>Test</strong>; <span class="gesture">swipe left</span> to <strong>Enable</strong> or <strong>Disable</strong>.</li>
+      <li><strong>Stats:</strong> queries, grabs, failures and average response time for each indexer.</li>
+      <li><strong>Search</strong> (magnifying glass): search every Prowlarr indexer at once and pick a release, just like <a href="#interactive">interactive search</a>. Grabs go to the download client set up in Prowlarr.</li>
+      <li><strong>⋯ menu:</strong> <strong>Test All Indexers</strong>.</li>
+    </ul>
+
+    <h2 id="bazarr">Bazarr</h2>
+    <p>Add Bazarr in <em>Settings → Add Bazarr</em> with its address (port 6767) and API key from <em>Settings → General → Security</em>.</p>
+    <ul>
+      <li><strong>Episodes</strong> and <strong>Movies</strong> list everything still missing subtitles, with the missing languages in red. The search field filters by title.</li>
+      <li><span class="gesture">Swipe right</span>, or touch and hold, to <strong>search for one missing language</strong>, e.g. "Search English".</li>
+      <li><strong>⋯ menu:</strong> <strong>Search All Missing</strong> episodes or movies. Bazarr works through them in the background.</li>
+    </ul>
 
     <h2 id="duo">iPhone Duo, iPad &amp; Mac</h2>
     <ul>
@@ -212,6 +232,8 @@
       <tr><td>Radarr library, calendar</td><td>Interactive · Automatic search</td><td>Monitor · Unmonitor</td><td>All of these</td></tr>
       <tr><td>Sonarr/Radarr queue</td><td>–</td><td>Remove · Remove and Blocklist</td><td>Remove</td></tr>
       <tr><td>Tautulli activity</td><td>–</td><td>Stop stream</td><td>Stop stream</td></tr>
+      <tr><td>Prowlarr indexers</td><td>Test</td><td>Enable · Disable</td><td>Both</td></tr>
+      <tr><td>Bazarr wanted</td><td>Search a missing language</td><td>–</td><td>Same searches</td></tr>
       <tr><td>Indexer results</td><td>Send to SABnzbd</td><td>–</td><td>Send · Open on Indexer</td></tr>
       <tr><td>Settings instances</td><td>–</td><td>Delete instance</td><td>Delete instance</td></tr>
     </table>
@@ -226,7 +248,7 @@
     <h2 id="privacy">Privacy</h2>
     <p>MoonLake has no account, no analytics and no servers of its own. It connects only to the servers and indexers you add, and keeps their addresses on your device and their keys in the Keychain. Posters and images come from your own Sonarr, Radarr and Tautulli; user avatars come from Plex.</p>
 
-    <p class="muted">© 2026 psi70y. Inspired by LunaSea by Jagandeep Brar. MoonLake isn't affiliated with SABnzbd, Sonarr, Radarr, Tautulli, Plex or any indexer. Contact: <a href="mailto:psi70y@gmail.com">psi70y@gmail.com</a>.</p>
+    <p class="muted">© 2026 psi70y. Inspired by LunaSea by Jagandeep Brar. MoonLake isn't affiliated with SABnzbd, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr, Plex or any indexer. Contact: <a href="mailto:psi70y@gmail.com">psi70y@gmail.com</a>.</p>
   </main>
 </body>
 </html>
