@@ -21,7 +21,7 @@
     <p>MoonLake brings <strong>SABnzbd, Sonarr, Radarr, Tautulli, Prowlarr and Bazarr</strong>, plus your <strong>Newznab indexers</strong> such as NZBGeek and nzb.life, together in one app for <strong>iPhone, iPad, Mac and the foldable iPhone Duo</strong>. It talks directly to your own servers, at home or away, with no account, no cloud and no tracking.</p>
     <p>MoonLake is inspired by <a href="https://github.com/jagandeepbrar/lunasea">LunaSea</a>, rebuilt from scratch as a native app.</p>
 
-    <p class="chips"><span>SABnzbd</span><span>Sonarr</span><span>Radarr</span><span>Tautulli</span><span>Prowlarr</span><span>Bazarr</span><span>Newznab indexers</span><span>Multiple instances</span><span>Home &amp; Away addresses</span><span>iPhone Duo</span></p>
+    <p class="chips"><span>SABnzbd</span><span>Sonarr</span><span>Radarr</span><span>Tautulli</span><span>Prowlarr</span><span>Bazarr</span><span>Newznab indexers</span><span>Multiple instances</span><span>Home &amp; Away addresses</span><span>iPhone Duo</span><span>Widget</span><span>Apple Watch</span><span>Demo Mode</span></p>
 
     <nav class="toc">
       <strong>Contents</strong>
@@ -40,6 +40,9 @@
         <li><a href="#prowlarr">Prowlarr</a></li>
         <li><a href="#bazarr">Bazarr</a></li>
         <li><a href="#duo">iPhone Duo, iPad &amp; Mac</a></li>
+        <li><a href="#widget">Widget &amp; Apple Watch</a></li>
+        <li><a href="#demo">Demo Mode</a></li>
+        <li><a href="#pro">MoonLake Pro</a></li>
         <li><a href="#gestures">Gesture cheat sheet</a></li>
         <li><a href="#faq">Questions</a></li>
         <li><a href="#privacy">Privacy</a></li>
@@ -62,7 +65,7 @@
     <p><em>Settings → Open at Launch</em> picks the screen MoonLake opens on: <strong>Home</strong> (the default), <strong>Search</strong>, any service in the sidebar, or <strong>Last Used</strong> to reopen wherever you were.</p>
 
     <h2 id="instances">Multiple instances</h2>
-    <p>You can add as many instances of any service as you run, for example <strong>Sonarr</strong> and <strong>Sonarr 4K</strong>, <strong>Radarr Anime</strong>, two SABnzbd servers, or Tautulli for two Plex servers.</p>
+    <p>With <a href="#pro">MoonLake Pro</a> you can add as many instances of any service as you run (the free version has one of each), for example <strong>Sonarr</strong> and <strong>Sonarr 4K</strong>, <strong>Radarr Anime</strong>, two SABnzbd servers, or Tautulli for two Plex servers.</p>
     <ul>
       <li><strong>Add:</strong> <em>Settings → Add Sonarr</em> (or any service). New instances are numbered until you name them.</li>
       <li><strong>Rename:</strong> open the instance in Settings and change <strong>Name</strong>.</li>
@@ -153,6 +156,7 @@
     </ul>
 
     <h2 id="radarr">Radarr</h2>
+    <figure><img src="images/radarr-library.png" alt="The Radarr library as a poster grid"><figcaption>The Radarr library as a poster grid, with each movie's status.</figcaption></figure>
     <ul>
       <li><strong>View Options:</strong> List or poster Grid; show All, Monitored, Unmonitored, Missing, Downloaded or Not Available Yet; sort by Title, Year, Recently Added, Release Date or Size on Disk; filter by Year.</li>
       <li><strong>Library:</strong> searchable, with each movie's status: Downloaded, Missing, In Cinemas, Announced, or "Downloading 45%" while in the queue. Unmonitored movies are dimmed. <span class="gesture">Swipe right</span> for <strong>Interactive</strong> or <strong>Automatic</strong> search, <span class="gesture">swipe left</span> to <strong>Monitor</strong> or <strong>Unmonitor</strong>.</li>
@@ -198,6 +202,7 @@
 
     <h2 id="prowlarr">Prowlarr</h2>
     <p>Add Prowlarr in <em>Settings → Add Prowlarr</em> with its address (port 9696) and API key from <em>Settings → General → Security</em>.</p>
+    <figure><img src="images/prowlarr.png" alt="Prowlarr's indexers"><figcaption>Prowlarr's indexers, including one resting after failures.</figcaption></figure>
     <ul>
       <li><strong>Indexers:</strong> every indexer with its protocol and priority. Indexers Prowlarr has paused after failures say when they'll be retried. <span class="gesture">Swipe right</span> to <strong>Test</strong>; <span class="gesture">swipe left</span> to <strong>Enable</strong> or <strong>Disable</strong>.</li>
       <li><strong>Stats:</strong> queries, grabs, failures and average response time for each indexer.</li>
@@ -207,6 +212,7 @@
 
     <h2 id="bazarr">Bazarr</h2>
     <p>Add Bazarr in <em>Settings → Add Bazarr</em> with its address (port 6767) and API key from <em>Settings → General → Security</em>.</p>
+    <figure><img src="images/bazarr.png" alt="Episodes missing subtitles in Bazarr"><figcaption>Episodes missing subtitles, with the languages Bazarr is still looking for.</figcaption></figure>
     <ul>
       <li><strong>Episodes</strong> and <strong>Movies</strong> list everything still missing subtitles, with the missing languages in red. The search field filters by title.</li>
       <li><span class="gesture">Swipe right</span>, or touch and hold, to <strong>search for one missing language</strong>, e.g. "Search English".</li>
@@ -219,7 +225,28 @@
       <li><strong>Book posture:</strong> hold the Duo half open and sideways, and the sidebar fills the left page with the content on the right, so nothing sits on the crease.</li>
       <li><strong>Folding and unfolding keep your place:</strong> the series you're on, the tab you're in.</li>
     </ul>
-    <figure><img src="images/duo-book.png" alt="MoonLake on iPhone Duo in book posture"><figcaption>Book posture: sidebar on the left page, content on the right.</figcaption></figure>
+
+    <h2 id="widget">Widget &amp; Apple Watch</h2>
+    <p>With <a href="#pro">MoonLake Pro</a>, what's on today follows you off the app.</p>
+    <ul>
+      <li><strong>Releasing Today widget:</strong> today's episodes and movie releases from all your Sonarr and Radarr instances, with air times and a tick for what's already downloaded. Small, medium and large on the Home Screen, iPad and Mac, plus Lock Screen sizes on iPhone. It moves on to each new day by itself; open MoonLake now and then to pick up changes.</li>
+      <li><strong>Apple Watch:</strong> scroll with the Digital Crown between <strong>Upcoming</strong> (the week's releases by day), <strong>Downloads</strong> (SABnzbd's speed and queue, with Pause and Resume) and <strong>Streams</strong> (who's watching on Plex, via Tautulli).</li>
+      <li><strong>Complications:</strong> today's count, the next releases, or a one-line summary on your watch face.</li>
+      <li>The Watch asks your iPhone for live status, so your server addresses and API keys never leave your iPhone.</li>
+    </ul>
+
+    <h2 id="demo">Demo Mode</h2>
+    <p>Want to look around before connecting anything? Tap <strong>Try Demo Mode</strong> on Home, or turn on <em>Settings → Demo Mode</em>. MoonLake fills every screen with sample servers: made-up shows, movies, downloads and streams, with artwork drawn from their titles. Everything works, from searches to pausing downloads, but nothing leaves your device and your own settings aren't touched. Tap <strong>Exit</strong> at the bottom of the sidebar to go back.</p>
+    <p class="muted">The screenshots on this page were taken in Demo Mode.</p>
+
+    <h2 id="pro">MoonLake Pro</h2>
+    <p>MoonLake is free with one instance of each service. <strong>MoonLake Pro</strong> is a one-time purchase (no subscription) that adds:</p>
+    <ul>
+      <li><strong>Multiple instances</strong> of any service, e.g. Sonarr and Sonarr 4K.</li>
+      <li>The <strong>Releasing Today widget</strong>.</li>
+      <li>The <strong>Apple Watch app</strong> and complications.</li>
+    </ul>
+    <p>Buy it in <em>Settings → MoonLake Pro</em>. It's shared with your family through Family Sharing, and <strong>Restore Purchases</strong> brings it back on a new device.</p>
 
     <h2 id="gestures">Gesture cheat sheet</h2>
     <table>
