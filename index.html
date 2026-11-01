@@ -62,7 +62,14 @@
     <figure><img src="images/settings.png" alt="Settings, with a section for each service and its instances"><figcaption>Settings: a section for each service, with its instances.</figcaption></figure>
 
     <h3>iCloud Backup</h3>
-    <p>MoonLake backs up your servers and preferences to iCloud, and your API keys and passwords to iCloud Keychain (end-to-end encrypted). On a new iPhone, iPad or Mac signed in to the same Apple Account, MoonLake offers to <strong>restore</strong> them the first time it opens. You can also restore at any time from <em>Settings → iCloud Backup → Restore from iCloud</em>, which replaces that device's servers, or turn the backup off there, which deletes the iCloud copy. If iCloud Keychain is off, everything but the API keys is restored, and MoonLake tells you which to enter again.</p>
+    <p>Each of your devices backs up its own MoonLake settings to iCloud: servers and preferences to your iCloud storage, and API keys and passwords to iCloud Keychain (end-to-end encrypted). Because every device has its own backup, setting up a new or erased device never replaces the backup of the one you've been using.</p>
+    <ul>
+      <li><strong>New device:</strong> the first time MoonLake opens on an iPhone, iPad or Mac with nothing set up, it offers the most complete backup from your other devices, or lets you choose a different one.</li>
+      <li><strong>Restore from iCloud:</strong> <em>Settings → iCloud Backup → Restore from iCloud</em> lists every device's backup with its name, number of servers and date. Tap one to restore it to the device you're using; swipe to delete one you no longer need, such as a phone you've sold.</li>
+      <li><strong>Backup Name:</strong> iPhones and iPads are called "iPhone" and "iPad" to begin with; give each a name, such as "Work iPhone", to tell them apart.</li>
+      <li><strong>Turning it off</strong> on a device deletes just that device's backup; your other devices' backups stay. Settings reminds you it's off.</li>
+      <li>If iCloud Keychain is off, everything but the API keys is restored, and MoonLake tells you which to enter again.</li>
+    </ul>
 
     <h3>Erase All Settings</h3>
     <p><em>Settings → Erase All Settings</em> removes every server, API key and preference from the device you're using, so MoonLake starts over as if just downloaded. It asks first. Only that device is affected: your other devices, your iCloud Backup and your servers themselves aren't touched, and MoonLake Pro stays unlocked. To bring your settings back, use <strong>Restore from iCloud</strong>.</p>

@@ -32,7 +32,7 @@
       <li><strong>Apple Watch:</strong> your iPhone sends your Watch that list of releases, and the live download and stream status the Watch asks for. Server addresses and API keys never leave your iPhone.</li>
     </ul>
     <h2>iCloud Backup</h2>
-    <p>Unless you turn it off in <em>Settings → iCloud Backup</em>, MoonLake keeps a copy of your servers and preferences in <strong>your own iCloud account</strong> (iCloud key-value storage), and of your API keys and passwords in <strong>iCloud Keychain</strong>, which encrypts them end to end. That lets a new iPhone, iPad or Mac signed in to your Apple Account restore your settings. It's stored by Apple under your account; the developer can't see or access it. Turning the backup off deletes the iCloud copy.</p>
+    <p>Unless you turn it off in <em>Settings → iCloud Backup</em>, each of your devices keeps a copy of its MoonLake servers and preferences in <strong>your own iCloud account</strong> (iCloud key-value storage), and of its API keys and passwords in <strong>iCloud Keychain</strong>, which encrypts them end to end. That lets any of your devices signed in to your Apple Account restore your settings. It's stored by Apple under your account; the developer can't see or access it. Turning the backup off on a device, or deleting a device's backup, removes that copy from iCloud.</p>
 
     <p>None of this is sent to the developer or anyone else. Deleting an instance in MoonLake's Settings removes its address and key; deleting the app removes its settings, though iOS may keep Keychain entries until the device is erased.</p>
 
