@@ -89,6 +89,7 @@
       <li><strong>Sidebar:</strong> Home, Search (once an indexer is set up), each enabled service instance, and Settings. On a narrow screen it's the first screen; tap back to return to it.</li>
       <li><strong>Tabs:</strong> services with several views (Queue / History, Library / Calendar / Queue, Activity / Users / History / Stats) switch with the control at the top. MoonLake remembers the tab you used.</li>
       <li><strong>Settings gear:</strong> the ⚙︎ on any service screen opens that instance's settings.</li>
+      <li><strong>Open Web Interface:</strong> in each service's <strong>⋯ menu</strong> (the 🌐 button on Tautulli), opens the service's own web page in your browser, at whichever address is working, for anything MoonLake doesn't do itself.</li>
       <li><strong>Pull down</strong> to refresh any list. Busy lists (queues, activity) also refresh themselves while they're on screen.</li>
       <li><strong>Notices:</strong> after an action, a short message at the bottom confirms it, e.g. "Searching for The Show", or explains what went wrong.</li>
     </ul>
@@ -114,6 +115,14 @@
       <li><span class="gesture">Swipe left</span>: <strong>Delete</strong>, after a confirmation. This also removes whatever it downloaded so far.</li>
       <li><span class="gesture">Touch and hold</span> for <strong>Move to Top</strong>, <strong>Move to Bottom</strong>, a <strong>Priority</strong> menu (Force, High, Normal, Low), and Delete. Non-normal priorities show a badge.</li>
       <li><strong>Reorder:</strong> touch and hold a job and drag it, or tap <strong>Edit</strong> for drag handles. SABnzbd always downloads higher priorities first, so raise a job's priority to make it finish sooner than lower-priority jobs.</li>
+    </ul>
+    <h3>The ⋯ menu</h3>
+    <ul>
+      <li><strong>Add NZB:</strong> paste a link (SABnzbd fetches it), or choose an <code>.nzb</code> file from Files, with a category and priority.</li>
+      <li><strong>Sort Queue:</strong> by age, name or size, either way. SABnzbd sorts the queue once; new jobs join the end.</li>
+      <li><strong>Clear History:</strong> completed jobs, failed jobs (and their leftover files), or everything, after a confirmation. Downloaded files are never touched.</li>
+      <li><strong>When the Queue Finishes:</strong> nothing, shut down SABnzbd, or sleep, hibernate or shut down the computer it runs on.</li>
+      <li><strong>Status &amp; Statistics:</strong> how much you've downloaded today, this week, this month and ever, in total and per news server; free space in the download and complete folders; speed limit, load and warnings.</li>
     </ul>
     <h3>History</h3>
     <ul>
@@ -152,7 +161,7 @@
       <li><strong>Calendar:</strong> yesterday to two weeks ahead, by day. <span class="gesture">Swipe right</span> to search; tap to open the series.</li>
       <li><strong>Queue:</strong> progress, import stage and any warning, e.g. "No files found are eligible for import". <span class="gesture">Swipe left</span>: <strong>Remove</strong> or <strong>Remove and Blocklist</strong>, which also removes it from the download client.</li>
       <li><strong>＋ Add Series:</strong> search TheTVDB by title, then choose the root folder, quality profile, what to monitor (all, future, missing, first or latest season…), series type and season folders, and whether to search for missing episodes straight away. Series you already have are marked <em>In Library</em>.</li>
-      <li><strong>⋯ menu:</strong> <strong>Search All Missing Episodes</strong> (asks first) and <strong>Refresh All Series</strong>.</li>
+      <li><strong>⋯ menu:</strong> <strong>Search All Missing Episodes</strong> (asks first), <strong>Refresh All Series</strong> (updates every series' details and rescans its files), <strong>Run RSS Sync</strong> (checks your indexers for new releases now rather than at the next scheduled sync), <strong>Back Up Database</strong> (saved alongside Sonarr's scheduled backups) and <strong>Open Web Interface</strong>.</li>
     </ul>
 
     <h2 id="radarr">Radarr</h2>
