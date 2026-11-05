@@ -18,10 +18,10 @@
       </div>
     </header>
 
-    <p class="muted">Effective 1 November 2026. <a href="index.html">← Back to MoonLake</a></p>
+    <p class="muted">Effective 2 November 2026. <a href="index.html">← Back to MoonLake</a></p>
 
     <h2>The short version</h2>
-    <p>MoonLake doesn't collect any data. There's no account, no analytics, no advertising and no tracking, and MoonLake has no servers of its own. It talks only to the servers you add, and everything you enter stays on your devices.</p>
+    <p>MoonLake doesn't collect any data about you. There's no account, no analytics, no advertising and no tracking. It talks to the servers you add, and everything you enter stays on your devices. The only exception is the notification relay, used only if you subscribe to MoonLake Pro+ and turn on notifications or downloads on the Lock Screen: it holds this device's push tokens and nothing else.</p>
 
     <h2>What stays on your device</h2>
     <ul>
@@ -46,8 +46,17 @@
     <p>MoonLake asks for <strong>Local Network</strong> access so it can reach servers on your home network. It uses that access for nothing else.</p>
     <p><strong>Demo Mode</strong> uses sample data built into the app and makes no network connections.</p>
 
+    <h2>Notifications (MoonLake Pro+)</h2>
+    <p>Notifications and self-starting downloads on the Lock Screen go through MoonLake's notification relay at <strong>relay.geps.au</strong>, run by the developer on Cloudflare. It's only used if you subscribe to Pro+ and turn one of them on.</p>
+    <ul>
+      <li><strong>What the relay keeps:</strong> a random ID for your device, the push tokens Apple issues for MoonLake on it, which events you want notifications for, and whether it's a test build. Nothing that identifies you, and never your server addresses, API keys or passwords.</li>
+      <li><strong>Your servers send events to it:</strong> when you connect a server in <em>Settings → Notifications</em>, MoonLake adds a webhook with a private address to that server. The server sends the relay events (such as "Grabbed" with the episode's title), which the relay turns into a notification and passes to Apple's push service for your device straight away. Events aren't stored.</li>
+      <li><strong>Limits:</strong> the relay counts events per device per hour, to stop a misconfigured server flooding you, and keeps those counts briefly. Cloudflare may keep standard request logs for a short time.</li>
+      <li><strong>Turning it off:</strong> turning off notifications and downloads on the Lock Screen, a Pro+ subscription ending, or Erase All Settings deletes this device's record from the relay. Any webhook left on a server then does nothing; <em>Disconnect</em> in Settings removes it from the server.</li>
+    </ul>
+
     <h2>Purchases</h2>
-    <p>MoonLake Pro is bought through the App Store. Apple handles the payment; MoonLake only learns whether Pro is unlocked, and never sees your payment details or Apple Account.</p>
+    <p>MoonLake Pro and Pro+ are bought through the App Store. Apple handles the payment; MoonLake only learns whether Pro or Pro+ is unlocked, and never sees your payment details or Apple Account.</p>
 
     <h2>Children</h2>
     <p>MoonLake isn't directed at children and doesn't knowingly collect information from anyone, of any age.</p>
@@ -56,9 +65,9 @@
     <p>If this policy changes, the new version will be posted on this page with a new effective date.</p>
 
     <h2>Contact</h2>
-    <p>Questions about privacy: <a href="mailto:psi70y@gmail.com">psi70y@gmail.com</a>.</p>
+    <p>Questions about privacy: <a href="mailto:moonlakeapp@geps.au">moonlakeapp@geps.au</a>.</p>
 
-    <p class="muted">© 2026 psi70y. MoonLake isn't affiliated with SABnzbd, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr, Plex, TheTVDB, The Movie Database or any indexer.</p>
+    <p class="muted">© 2026 GE Project Solutions. MoonLake isn't affiliated with SABnzbd, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr, Plex, TheTVDB, The Movie Database or any indexer.</p>
   </main>
 </body>
 </html>
