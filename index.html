@@ -49,6 +49,8 @@
         <li><a href="#widget">Widget &amp; Apple Watch</a></li>
         <li><a href="#demo">Demo Mode</a></li>
         <li><a href="#pro">MoonLake Pro</a></li>
+        <li><a href="#proplus">MoonLake Pro+</a></li>
+        <li><a href="#helper">Live progress helper</a></li>
         <li><a href="#gestures">Gesture cheat sheet</a></li>
         <li><a href="#faq">Questions</a></li>
         <li><a href="#privacy">Privacy</a></li>
@@ -264,7 +266,7 @@
       <li><strong>Releasing Today widget:</strong> today's episodes and movie releases from all your Sonarr and Radarr instances, with air times and a tick for what's already downloaded. Small, medium and large on the Home Screen, iPad and Mac, plus Lock Screen sizes on iPhone. It moves on to each new day by itself; open MoonLake now and then to pick up changes.</li>
       <li><strong>Apple Watch:</strong> scroll with the Digital Crown between <strong>Upcoming</strong> (the week's releases by day), <strong>Downloads</strong> (SABnzbd's speed and queue, with Pause and Resume) and <strong>Streams</strong> (who's watching on Plex, via Tautulli).</li>
       <li><strong>Complications:</strong> today's count, the next releases, or a one-line summary on your watch face.</li>
-      <li><strong>Downloads on the Lock Screen</strong> (Pro+, from MoonLake 1.1): while SABnzbd is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island. MoonLake updates it while it's open and now and then in the background, and it counts down on its own in between. Tap it to open SABnzbd. Turn it off in <em>Settings → Downloads on Lock Screen</em>.</li>
+      <li><strong>Downloads on the Lock Screen</strong> (<a href="#proplus">Pro+</a>, from MoonLake 1.1): while SABnzbd is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island.</li>
       <li>The Watch asks your iPhone for live status, so your server addresses and API keys never leave your iPhone.</li>
     </ul>
 
@@ -279,8 +281,96 @@
       <li>The <strong>Releasing Today widget</strong>.</li>
       <li>The <strong>Apple Watch app</strong> and complications.</li>
     </ul>
-    <p>From MoonLake 1.1, <strong>MoonLake Pro+</strong> is a monthly subscription (A$1.99 a month, with a one-week free trial) that includes everything in Pro and adds notifications from your servers and downloads on the Lock Screen and in the Dynamic Island. Cancel any time in your Apple Account's subscriptions.</p>
     <p>Buy it in <em>Settings → MoonLake Pro</em>. It's shared with your family through Family Sharing, and <strong>Restore Purchases</strong> brings it back on a new device.</p>
+    <p>From MoonLake 1.1, <a href="#proplus">MoonLake Pro+</a> adds notifications and downloads on the Lock Screen.</p>
+
+    <h2 id="proplus">MoonLake Pro+</h2>
+    <p class="note">MoonLake Pro+ is available from MoonLake 1.1.</p>
+    <p><strong>MoonLake Pro+</strong> is a monthly subscription (A$1.99 a month, with a one-week free trial). It includes everything in <a href="#pro">Pro</a> and adds two things on iPhone and iPad: <strong>notifications</strong> from your servers, and your <strong>downloads on the Lock Screen</strong> and in the Dynamic Island. Subscribe in <em>Settings → MoonLake Pro</em>, and cancel any time in your Apple Account's subscriptions.</p>
+    <p>Both work even when MoonLake is closed, through MoonLake's <strong>notification relay</strong>: your servers tell the relay when something happens, and the relay passes it on to your device through Apple's push service. The relay never has your server addresses, API keys or passwords; see the <a href="privacy.html">privacy policy</a>.</p>
+
+    <h3>Notifications</h3>
+    <ol>
+      <li>Open <em>Settings → Notifications</em> and turn on <strong>Notifications</strong>.</li>
+      <li>Under <strong>Servers</strong>, tap <strong>Connect</strong> next to each Sonarr, Radarr, Prowlarr and SABnzbd. MoonLake adds a webhook to that server for you (in Sonarr, Radarr and Prowlarr under <em>Settings → Connect</em>; in SABnzbd under <em>Config → Notifications</em>). There's nothing to type in.</li>
+      <li>Tap <strong>Send Test Notification</strong> to check it works.</li>
+    </ol>
+    <p>Choose what you hear about under <strong>Notify Me About</strong>:</p>
+    <table>
+      <tr><th>Server</th><th>Events</th></tr>
+      <tr><td>Sonarr, Radarr</td><td>Grabbed · Imported or Upgraded · Import Needs Attention (a download finished but couldn't be imported, with the reason) · Health Issues</td></tr>
+      <tr><td>SABnzbd</td><td>Download Finished · Download Failed · All Downloads Finished · Disk Full</td></tr>
+      <tr><td>Prowlarr</td><td>Health Issues</td></tr>
+    </table>
+    <p>Under <strong>Per Server</strong>, give one server its own choices, for example only failures from Sonarr 4K. The rest follow the app-wide switches.</p>
+    <p>Each iPhone and iPad connects for itself and gets its own webhook, so connect on every device you want notifications on. If a webhook address has ever been shared by mistake, <strong>New Webhook Addresses</strong> retires the old ones and updates your servers.</p>
+
+    <h3>Downloads on the Lock Screen</h3>
+    <p>While SABnzbd is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island. Tap it to open SABnzbd.</p>
+    <ul>
+      <li><strong>It starts by itself</strong> when a download is added, as long as SABnzbd is connected in <em>Settings → Notifications</em>, even with MoonLake closed.</li>
+      <li><strong>It ends</strong> with <strong>Done · All downloads finished</strong> when the queue completes, or <strong>Stopped · Queue empty</strong> if you delete what was downloading. A finished activity stays for five minutes.</li>
+      <li><strong>Progress:</strong> on its own, MoonLake updates progress when it's open and now and then in the background, and counts down in between. For progress that keeps up all the time, add the <a href="#helper">live progress helper</a>.</li>
+      <li>Turn it off in <em>Settings → Notifications → Downloads on Lock Screen</em>.</li>
+    </ul>
+
+    <h2 id="helper">Live progress helper</h2>
+    <p>The helper is optional. Without it, your Lock Screen download starts and ends by itself but only shows progress when MoonLake has had a chance to check. With it, progress, speed and time left stay up to date with MoonLake closed, and a deleted download clears within about 30 seconds.</p>
+
+    <h3>Why a helper?</h3>
+    <p>SABnzbd only tells the outside world about events, such as "download added" or "queue finished", not its progress in between. And iOS doesn't let apps check a server every few seconds in the background. So something on your own network has to look at SABnzbd's queue and pass the progress on. That's the helper.</p>
+
+    <h3>What it does</h3>
+    <ol>
+      <li>Every 30 seconds it asks SABnzbd for its queue, over your home network.</li>
+      <li>If something is queued, it sends the queue (names, sizes, speed and time left) to MoonLake's relay, which updates the Live Activity on your devices.</li>
+      <li>When the queue empties, it sends one last update, so the relay can end the activity as finished or as emptied.</li>
+      <li>While SABnzbd is idle, it sends nothing at all.</li>
+    </ol>
+    <p>It's a short script you can read: a loop of <code>curl</code> calls, with nothing to install. <strong>Your API key stays in the helper, at home</strong>; the relay only ever sees the queue. The helper needs to reach the internet, but nothing needs to reach it: no ports to open.</p>
+
+    <h3>What you need</h3>
+    <p>Something that's always on and can reach SABnzbd: a <strong>Mac</strong>, a <strong>Linux</strong> computer or Raspberry Pi, a <strong>Docker</strong> host, a <strong>Synology</strong> NAS, or a <strong>Windows</strong> PC. The computer that runs SABnzbd is usually the easiest choice.</p>
+
+    <h3>Setting it up</h3>
+    <ol>
+      <li>On your iPhone or iPad, open <em>Settings → Notifications</em>. Under <strong>Live Download Progress</strong>, tap <strong>Set Up</strong> next to your SABnzbd.</li>
+      <li>Leave <strong>New Helper</strong> selected and choose what it <strong>Runs On</strong>.</li>
+      <li>MoonLake shows everything that system needs, already filled in with your SABnzbd's address and the private address for your device. Tap <strong>Copy</strong> on each item and paste it on the computer (Universal Clipboard pastes straight onto a Mac).</li>
+      <li>Follow the steps shown under <strong>Set It Up</strong>.</li>
+      <li>Add a download in SABnzbd and lock your phone: the Live Activity should keep up within a minute or two.</li>
+    </ol>
+    <table>
+      <tr><th>Runs on</th><th>What MoonLake gives you</th><th>How it keeps running</th></tr>
+      <tr><td>Mac</td><td>The helper, and a background item</td><td>Starts at login and restarts if it stops (launchd). A few lines in Terminal set it up.</td></tr>
+      <tr><td>Linux</td><td>The helper, and a service file</td><td>A systemd user service: starts at boot and restarts if it stops.</td></tr>
+      <tr><td>Docker</td><td>The helper, and a compose file</td><td>Runs in the small official <code>curlimages/curl</code> image, restarted by Docker.</td></tr>
+      <tr><td>Synology</td><td>The helper, and a compose file</td><td>A Container Manager project (DSM 7.2 or later), or a boot-up task in Task Scheduler.</td></tr>
+      <tr><td>Windows</td><td>A PowerShell version of the helper</td><td>A scheduled task that starts at sign-in, hidden.</td></tr>
+    </table>
+    <p class="note">The helper uses your SABnzbd's <strong>Home</strong> address. If that's <code>localhost</code> and the helper runs in Docker, change the <code>SAB=</code> line to the server's network address, such as <code>http://192.168.1.10:8080</code>; MoonLake warns you when this applies.</p>
+
+    <h3>More than one iPhone or iPad</h3>
+    <p>One helper can update all your devices. You don't need a second helper, and nothing changes on the one you have.</p>
+    <ol>
+      <li>On the device you set the helper up from, open <em>Settings → Notifications → Live Download Progress → Set Up</em> and tap <strong>Share With Another Device</strong>. It shows a code such as <code>86TE-PGVV</code>, which works once, for 10 minutes.</li>
+      <li>On the other device, open the same screen, choose <strong>Already Running</strong>, enter the code and tap <strong>Link</strong>.</li>
+    </ol>
+    <p>The first device then lists the other under <strong>Also Updates</strong>. <strong>Stop Sharing</strong> on the first device, or <strong>Stop Using It</strong> on the other, undoes it.</p>
+
+    <h3>Updating or removing it</h3>
+    <ul>
+      <li><strong>After New Webhook Addresses,</strong> or if your SABnzbd's address or API key changes, open <strong>Set Up</strong> again, copy the new helper over the old one and restart it. The steps in MoonLake include how.</li>
+      <li><strong>To remove it,</strong> follow the "Stopping it" step for your system in MoonLake, then delete the files.</li>
+    </ul>
+
+    <h3>If progress doesn't update</h3>
+    <ul>
+      <li>Check the helper is running on the computer, and that the computer can open your SABnzbd's address in a browser.</li>
+      <li>Check <em>Downloads on Lock Screen</em> is on, and that Live Activities are allowed for MoonLake in iOS Settings.</li>
+      <li>On a locked device, iOS may hold some updates back for a minute or two to save battery. That's normal.</li>
+      <li>On a second device, make sure it's linked under <strong>Already Running</strong>.</li>
+    </ul>
 
     <h2 id="gestures">Gesture cheat sheet</h2>
     <table>
