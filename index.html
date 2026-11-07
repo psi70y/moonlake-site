@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoonLake – A native client for your media server</title>
-  <meta name="description" content="MoonLake is an iPhone, iPad and Mac app for SABnzbd, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr and Newznab indexers.">
+  <meta name="description" content="MoonLake is an iPhone, iPad and Mac app for SABnzbd, NZBGet, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr and Newznab indexers.">
   <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -24,10 +24,10 @@
       </div>
     </header>
 
-    <p>MoonLake brings <strong>SABnzbd, Sonarr, Radarr, Tautulli, Prowlarr and Bazarr</strong>, plus your <strong>Newznab indexers</strong> such as NZBGeek and nzb.life, together in one app for <strong>iPhone, iPad, Mac and the foldable iPhone Duo</strong>. It talks directly to your own servers, at home or away, with no account, no cloud and no tracking.</p>
+    <p>MoonLake brings <strong>SABnzbd, NZBGet, Sonarr, Radarr, Tautulli, Prowlarr and Bazarr</strong>, plus your <strong>Newznab indexers</strong> such as NZBGeek and nzb.life, together in one app for <strong>iPhone, iPad, Mac and the foldable iPhone Duo</strong>. It talks directly to your own servers, at home or away, with no account, no cloud and no tracking.</p>
     <p>MoonLake is inspired by <a href="https://github.com/jagandeepbrar/lunasea">LunaSea</a>, rebuilt from scratch as a native app.</p>
 
-    <p class="chips"><span>SABnzbd</span><span>Sonarr</span><span>Radarr</span><span>Tautulli</span><span>Prowlarr</span><span>Bazarr</span><span>Newznab indexers</span><span>Multiple instances</span><span>Home &amp; Away addresses</span><span>iPhone Duo</span><span>Widget</span><span>Apple Watch</span><span>Demo Mode</span></p>
+    <p class="chips"><span>SABnzbd</span><span>NZBGet</span><span>Sonarr</span><span>Radarr</span><span>Tautulli</span><span>Prowlarr</span><span>Bazarr</span><span>Newznab indexers</span><span>Multiple instances</span><span>Home &amp; Away addresses</span><span>iPhone Duo</span><span>Widget</span><span>Apple Watch</span><span>Demo Mode</span></p>
 
     <nav class="toc">
       <strong>Contents</strong>
@@ -38,6 +38,7 @@
         <li><a href="#navigating">Getting around</a></li>
         <li><a href="#home">Home</a></li>
         <li><a href="#sabnzbd">SABnzbd</a></li>
+        <li><a href="#nzbget">NZBGet</a></li>
         <li><a href="#sonarr">Sonarr</a></li>
         <li><a href="#radarr">Radarr</a></li>
         <li><a href="#interactive">Interactive search</a></li>
@@ -155,6 +156,31 @@
       <li><span class="gesture">Swipe left</span>: <strong>Remove</strong> from history. For a failed job this also deletes its leftover files; completed downloads are never touched.</li>
     </ul>
 
+    <h2 id="nzbget">NZBGet</h2>
+    <p class="note">NZBGet is supported from MoonLake 1.1.</p>
+    <p>MoonLake works with <a href="https://nzbget.com">NZBGet</a> as it does with SABnzbd. Add it in <em>Settings</em> with its address (port 6789 unless you've changed it) and its <strong>ControlUsername</strong> and <strong>ControlPassword</strong>, from <em>Settings → Security</em> in NZBGet.</p>
+    <h3>Queue</h3>
+    <ul>
+      <li>Each job's progress, size left and time left, with the speed and total time left at the top. Jobs being repaired, unpacked or moved show what NZBGet is doing, with a purple bar.</li>
+      <li><span class="gesture">Swipe right</span>: <strong>Pause</strong> or <strong>Resume</strong>. <span class="gesture">Swipe left</span>: <strong>Delete</strong>.</li>
+      <li><span class="gesture">Touch and hold</span>: Move to Top or Bottom, <strong>Priority</strong> (Very Low to Force) and <strong>Category</strong>. Drag to reorder, or tap <strong>Edit</strong> for handles.</li>
+      <li>Pause or resume all downloading from the toolbar. A job's health shows if articles are missing from your news servers.</li>
+    </ul>
+    <h3>The ⋯ menu</h3>
+    <ul>
+      <li><strong>Add NZB</strong> from a link or an <code>.nzb</code> file, with a category and priority.</li>
+      <li><strong>Sort Queue</strong> by name, size or what's left to download.</li>
+      <li><strong>Pause For</strong> 5 minutes to 6 hours (NZBGet resumes by itself), and a <strong>Speed Limit</strong> in MB/s.</li>
+      <li><strong>Clear History</strong> of completed, or failed and deleted, jobs.</li>
+      <li><strong>Status &amp; Statistics:</strong> downloaded today, in the last 7 and 30 days and all time, per news server, plus free space and NZBGet's version.</li>
+    </ul>
+    <h3>History</h3>
+    <ul>
+      <li>Completed, failed, warning and deleted jobs, with the reason in words (for example "Unpacking failed"). <strong>Search</strong> by name.</li>
+      <li><strong>Tap</strong> a job for its details: times, average speed, each post-processing stage and where it was saved.</li>
+      <li><span class="gesture">Swipe right</span> on a failed job: <strong>Download Again</strong>. <span class="gesture">Touch and hold</span>: <strong>Process Again</strong> (repair and unpack again). <span class="gesture">Swipe left</span>: <strong>Remove</strong>.</li>
+    </ul>
+
     <h2 id="sonarr">Sonarr</h2>
     <figure><img src="images/sonarr-series.png" alt="A Sonarr series with seasons and episode status icons"><figcaption>A series: monitoring, seasons and episode status.</figcaption></figure>
     <h3>Library</h3>
@@ -227,7 +253,7 @@
       <li><strong>Browse:</strong> tap an indexer to see its categories (All, then Movies, TV, Audio and their subcategories such as HD and UHD). Tap one to see its <strong>newest releases</strong>; the search field then searches inside it.</li>
       <li><strong>Search All Indexers:</strong> search every indexer at once, with <strong>Category</strong> and <strong>Indexers</strong> menus.</li>
       <li>Results show size, age, grabs and category, and which indexer they came from. Sort by Newest, Largest or Most Grabbed; <strong>Load More</strong> fetches the next page.</li>
-      <li><strong>Tap</strong>, or <span class="gesture">swipe right</span>, to <strong>Send to SABnzbd</strong>: choose the SABnzbd instance, one of its <strong>categories</strong> and a <strong>priority</strong>. SABnzbd fetches the NZB straight from the indexer.</li>
+      <li><strong>Tap</strong>, or <span class="gesture">swipe right</span>, to <strong>Send</strong> it to SABnzbd or NZBGet: choose which one, one of its <strong>categories</strong> and a <strong>priority</strong>. It fetches the NZB straight from the indexer.</li>
       <li><span class="gesture">Touch and hold</span>: <strong>Open on Indexer</strong> opens the release's page.</li>
     </ul>
     <figure><img src="images/send-to-sabnzbd.png" alt="Sending a result to SABnzbd"><figcaption>Send to SABnzbd, with category and priority.</figcaption></figure>
@@ -264,9 +290,9 @@
     <p>With <a href="#pro">MoonLake Pro</a>, what's on today follows you off the app.</p>
     <ul>
       <li><strong>Releasing Today widget:</strong> today's episodes and movie releases from all your Sonarr and Radarr instances, with air times and a tick for what's already downloaded. Small, medium and large on the Home Screen, iPad and Mac, plus Lock Screen sizes on iPhone. It moves on to each new day by itself; open MoonLake now and then to pick up changes.</li>
-      <li><strong>Apple Watch:</strong> scroll with the Digital Crown between <strong>Upcoming</strong> (the week's releases by day), <strong>Downloads</strong> (SABnzbd's speed and queue, with Pause and Resume) and <strong>Streams</strong> (who's watching on Plex, via Tautulli).</li>
+      <li><strong>Apple Watch:</strong> scroll with the Digital Crown between <strong>Upcoming</strong> (the week's releases by day), <strong>Downloads</strong> (SABnzbd's, or NZBGet's, speed and queue, with Pause and Resume) and <strong>Streams</strong> (who's watching on Plex, via Tautulli).</li>
       <li><strong>Complications:</strong> today's count, the next releases, or a one-line summary on your watch face.</li>
-      <li><strong>Downloads on the Lock Screen</strong> (<a href="#proplus">Pro+</a>, from MoonLake 1.1): while SABnzbd is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island.</li>
+      <li><strong>Downloads on the Lock Screen</strong> (<a href="#proplus">Pro+</a>, from MoonLake 1.1): while SABnzbd or NZBGet is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island.</li>
       <li>The Watch asks your iPhone for live status, so your server addresses and API keys never leave your iPhone.</li>
     </ul>
 
@@ -292,7 +318,8 @@
     <h3>Notifications</h3>
     <ol>
       <li>Open <em>Settings → Notifications</em> and turn on <strong>Notifications</strong>.</li>
-      <li>Under <strong>Servers</strong>, tap <strong>Connect</strong> next to each Sonarr, Radarr, Prowlarr and SABnzbd. MoonLake adds a webhook to that server for you (in Sonarr, Radarr and Prowlarr under <em>Settings → Connect</em>; in SABnzbd under <em>Config → Notifications</em>). There's nothing to type in.</li>
+      <li>Under <strong>Servers</strong>, tap <strong>Connect</strong> next to each Sonarr, Radarr, Prowlarr, Bazarr, SABnzbd and NZBGet. MoonLake adds a webhook to that server for you (in Sonarr, Radarr and Prowlarr under <em>Settings → Connect</em>; in Bazarr under <em>Settings → Notifications</em>, as its JSON provider; in SABnzbd under <em>Config → Notifications</em>). There's nothing to type in.</li>
+      <li><strong>NZBGet</strong> can't send webhooks itself, so Connect installs MoonLake's small NZBGet extension and switches it on (NZBGet 23 or later). It tells MoonLake when a download is added, deleted, finished or failed, sending only the download's name, category and result.</li>
       <li>Tap <strong>Send Test Notification</strong> to check it works.</li>
     </ol>
     <p>Choose what you hear about under <strong>Notify Me About</strong>:</p>
@@ -300,15 +327,17 @@
       <tr><th>Server</th><th>Events</th></tr>
       <tr><td>Sonarr, Radarr</td><td>Grabbed · Imported or Upgraded · Import Needs Attention (a download finished but couldn't be imported, with the reason) · Health Issues</td></tr>
       <tr><td>SABnzbd</td><td>Download Finished · Download Failed · All Downloads Finished · Disk Full</td></tr>
+      <tr><td>NZBGet</td><td>Download Finished · Download Failed (or needs attention, with the reason) · All Downloads Finished</td></tr>
+      <tr><td>Bazarr</td><td>Subtitles Downloaded: found, upgraded, uploaded, extracted from the video or translated, with the language and provider</td></tr>
       <tr><td>Prowlarr</td><td>Health Issues</td></tr>
     </table>
     <p>Under <strong>Per Server</strong>, give one server its own choices, for example only failures from Sonarr 4K. The rest follow the app-wide switches.</p>
     <p>Each iPhone and iPad connects for itself and gets its own webhook, so connect on every device you want notifications on. If a webhook address has ever been shared by mistake, <strong>New Webhook Addresses</strong> retires the old ones and updates your servers.</p>
 
     <h3>Downloads on the Lock Screen</h3>
-    <p>While SABnzbd is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island. Tap it to open SABnzbd.</p>
+    <p>While SABnzbd or NZBGet is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island. Tap it to open the downloader.</p>
     <ul>
-      <li><strong>It starts by itself</strong> when a download is added, as long as SABnzbd is connected in <em>Settings → Notifications</em>, even with MoonLake closed.</li>
+      <li><strong>It starts by itself</strong> when a download is added, as long as SABnzbd or NZBGet is connected in <em>Settings → Notifications</em>, even with MoonLake closed.</li>
       <li><strong>It ends</strong> with <strong>Done · All downloads finished</strong> when the queue completes, or <strong>Stopped · Queue empty</strong> if you delete what was downloading. A finished activity stays for five minutes.</li>
       <li><strong>Progress:</strong> on its own, MoonLake updates progress when it's open and now and then in the background, and counts down in between. For progress that keeps up all the time, add the <a href="#helper">live progress helper</a>.</li>
       <li>Turn it off in <em>Settings → Notifications → Downloads on Lock Screen</em>.</li>
@@ -318,27 +347,27 @@
     <p>The helper is optional. Without it, your Lock Screen download starts and ends by itself but only shows progress when MoonLake has had a chance to check. With it, progress, speed and time left stay up to date with MoonLake closed, and a deleted download clears within about 30 seconds.</p>
 
     <h3>Why a helper?</h3>
-    <p>SABnzbd only tells the outside world about events, such as "download added" or "queue finished", not its progress in between. And iOS doesn't let apps check a server every few seconds in the background. So something on your own network has to look at SABnzbd's queue and pass the progress on. That's the helper.</p>
+    <p>SABnzbd and NZBGet only tell the outside world about events, such as "download added" or "queue finished", not their progress in between. And iOS doesn't let apps check a server every few seconds in the background. So something on your own network has to look at their queues and pass the progress on. That's the helper. <strong>One helper watches all your SABnzbd and NZBGet servers.</strong></p>
 
     <h3>What it does</h3>
     <ol>
-      <li>Every 30 seconds it asks SABnzbd for its queue, over your home network.</li>
+      <li>Every 30 seconds it asks each SABnzbd and NZBGet for its queue, over your home network.</li>
       <li>If something is queued, it sends the queue (names, sizes, speed and time left) to MoonLake's relay, which updates the Live Activity on your devices.</li>
       <li>When the queue empties, it sends one last update, so the relay can end the activity as finished or as emptied.</li>
-      <li>While SABnzbd is idle, it sends nothing at all.</li>
+      <li>While they're idle, it sends nothing at all.</li>
     </ol>
-    <p>It's a short script you can read: a loop of <code>curl</code> calls, with nothing to install. <strong>Your API key stays in the helper, at home</strong>; the relay only ever sees the queue. The helper needs to reach the internet, but nothing needs to reach it: no ports to open.</p>
+    <p>It's a short script you can read: a loop of <code>curl</code> calls, with nothing to install. <strong>Your API keys and passwords stay in the helper, at home</strong>; the relay only ever sees the queue. The helper needs to reach the internet, but nothing needs to reach it: no ports to open.</p>
 
     <h3>What you need</h3>
-    <p>Something that's always on and can reach SABnzbd: a <strong>Mac</strong>, a <strong>Linux</strong> computer or Raspberry Pi, a <strong>Docker</strong> host, a <strong>Synology</strong> NAS, or a <strong>Windows</strong> PC. The computer that runs SABnzbd is usually the easiest choice.</p>
+    <p>Something that's always on and can reach your SABnzbd and NZBGet: a <strong>Mac</strong>, a <strong>Linux</strong> computer or Raspberry Pi, a <strong>Docker</strong> host, a <strong>Synology</strong> NAS, or a <strong>Windows</strong> PC. The computer that runs your downloader is usually the easiest choice.</p>
 
     <h3>Setting it up</h3>
     <ol>
-      <li>On your iPhone or iPad, open <em>Settings → Notifications</em>. Under <strong>Live Download Progress</strong>, tap <strong>Set Up</strong> next to your SABnzbd.</li>
+      <li>On your iPhone or iPad, open <em>Settings → Notifications</em>. Under <strong>Live Download Progress</strong>, tap <strong>Set Up</strong>. It covers every SABnzbd and NZBGet you've added.</li>
       <li>Leave <strong>New Helper</strong> selected and choose what it <strong>Runs On</strong>.</li>
-      <li>MoonLake shows everything that system needs, already filled in with your SABnzbd's address and the private address for your device. Tap <strong>Copy</strong> on each item and paste it on the computer (Universal Clipboard pastes straight onto a Mac).</li>
+      <li>MoonLake shows everything that system needs, already filled in with your servers' addresses and the private addresses for your device. Tap <strong>Copy</strong> on each item and paste it on the computer (Universal Clipboard pastes straight onto a Mac).</li>
       <li>Follow the steps shown under <strong>Set It Up</strong>.</li>
-      <li>Add a download in SABnzbd and lock your phone: the Live Activity should keep up within a minute or two.</li>
+      <li>Add a download and lock your phone: the Live Activity should keep up within a minute or two.</li>
     </ol>
     <table>
       <tr><th>Runs on</th><th>What MoonLake gives you</th><th>How it keeps running</th></tr>
@@ -348,10 +377,10 @@
       <tr><td>Synology</td><td>The helper, and a compose file</td><td>A Container Manager project (DSM 7.2 or later), or a boot-up task in Task Scheduler.</td></tr>
       <tr><td>Windows</td><td>A PowerShell version of the helper</td><td>A scheduled task that starts at sign-in, hidden.</td></tr>
     </table>
-    <p class="note">The helper uses your SABnzbd's <strong>Home</strong> address. If that's <code>localhost</code> and the helper runs in Docker, change the <code>SAB=</code> line to the server's network address, such as <code>http://192.168.1.10:8080</code>; MoonLake warns you when this applies.</p>
+    <p class="note">The helper uses each server's <strong>Home</strong> address. If one is <code>localhost</code> and the helper runs in Docker, change it in the helper's server list to the server's network address, such as <code>http://192.168.1.10:8080</code>; MoonLake warns you when this applies.</p>
 
     <h3>More than one iPhone or iPad</h3>
-    <p>One helper can update all your devices. You don't need a second helper, and nothing changes on the one you have.</p>
+    <p>One helper can update all your devices. You don't need a second helper, and nothing changes on the one you have. One code covers every server the helper watches.</p>
     <ol>
       <li>On the device you set the helper up from, open <em>Settings → Notifications → Live Download Progress → Set Up</em> and tap <strong>Share With Another Device</strong>. It shows a code such as <code>86TE-PGVV</code>, which works once, for 10 minutes.</li>
       <li>On the other device, open the same screen, choose <strong>Already Running</strong>, enter the code and tap <strong>Link</strong>.</li>
@@ -360,13 +389,13 @@
 
     <h3>Updating or removing it</h3>
     <ul>
-      <li><strong>After New Webhook Addresses,</strong> or if your SABnzbd's address or API key changes, open <strong>Set Up</strong> again, copy the new helper over the old one and restart it. The steps in MoonLake include how.</li>
+      <li><strong>After adding a SABnzbd or NZBGet, after New Webhook Addresses,</strong> or if a server's address, API key or password changes, open <strong>Set Up</strong> again, copy the new helper over the old one and restart it. The steps in MoonLake include how.</li>
       <li><strong>To remove it,</strong> follow the "Stopping it" step for your system in MoonLake, then delete the files.</li>
     </ul>
 
     <h3>If progress doesn't update</h3>
     <ul>
-      <li>Check the helper is running on the computer, and that the computer can open your SABnzbd's address in a browser.</li>
+      <li>Check the helper is running on the computer, and that the computer can open your SABnzbd's or NZBGet's address in a browser.</li>
       <li>Check <em>Downloads on Lock Screen</em> is on, and that Live Activities are allowed for MoonLake in iOS Settings.</li>
       <li>On a locked device, iOS may hold some updates back for a minute or two to save battery. That's normal.</li>
       <li>On a second device, make sure it's linked under <strong>Already Running</strong>.</li>
@@ -378,6 +407,8 @@
       <tr><td>Home</td><td>Interactive · Automatic search</td><td>–</td><td>Same searches</td></tr>
       <tr><td>SABnzbd queue</td><td>Pause · Resume</td><td>Delete</td><td>Move to Top/Bottom · Priority · Drag to reorder</td></tr>
       <tr><td>SABnzbd history</td><td>–</td><td>Remove</td><td>Remove</td></tr>
+      <tr><td>NZBGet queue</td><td>Pause · Resume</td><td>Delete</td><td>Move to Top/Bottom · Priority · Category · Drag to reorder</td></tr>
+      <tr><td>NZBGet history</td><td>Download Again (failed jobs)</td><td>Remove</td><td>Download Again · Process Again · Remove</td></tr>
       <tr><td>Sonarr library</td><td>Automatic search</td><td>Monitor · Unmonitor</td><td>Both</td></tr>
       <tr><td>Sonarr episodes, calendar</td><td>Interactive · Automatic search</td><td>Monitor · Unmonitor (episodes)</td><td>All of these</td></tr>
       <tr><td>Radarr library, calendar</td><td>Interactive · Automatic search</td><td>Monitor · Unmonitor</td><td>All of these</td></tr>
@@ -385,7 +416,7 @@
       <tr><td>Tautulli activity</td><td>–</td><td>Stop stream</td><td>Stop stream</td></tr>
       <tr><td>Prowlarr indexers</td><td>Test</td><td>Enable · Disable</td><td>Both</td></tr>
       <tr><td>Bazarr wanted</td><td>Search a missing language</td><td>–</td><td>Same searches</td></tr>
-      <tr><td>Indexer results</td><td>Send to SABnzbd</td><td>–</td><td>Send · Open on Indexer</td></tr>
+      <tr><td>Indexer results</td><td>Send to SABnzbd or NZBGet</td><td>–</td><td>Send · Open on Indexer</td></tr>
       <tr><td>Settings instances</td><td>–</td><td>Delete instance</td><td>Delete instance</td></tr>
     </table>
     <p class="muted">A full swipe runs the first action, for example opening interactive search.</p>
@@ -399,7 +430,7 @@
     <h2 id="privacy">Privacy</h2>
     <p>MoonLake has no account and no analytics. It connects only to the servers and indexers you add, plus, if you use <a href="#proplus">Pro+</a> notifications or downloads on the Lock Screen, MoonLake's notification relay, which holds your device's push tokens and nothing else. It keeps your servers' addresses on your device and their keys in the Keychain. Posters and images come from your own Sonarr, Radarr and Tautulli; user avatars come from Plex. MoonLake collects no data at all. Read the full <a href="privacy.html">privacy policy</a>.</p>
 
-    <p class="muted">© 2026 GE Project Solutions. Inspired by LunaSea by Jagandeep Brar. MoonLake isn't affiliated with SABnzbd, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr, Plex or any indexer. Contact: <a href="mailto:moonlakeapp@geps.au">moonlakeapp@geps.au</a>.</p>
+    <p class="muted">© 2026 GE Project Solutions. Inspired by LunaSea by Jagandeep Brar. MoonLake isn't affiliated with SABnzbd, NZBGet, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr, Plex or any indexer. Contact: <a href="mailto:moonlakeapp@geps.au">moonlakeapp@geps.au</a>.</p>
   </main>
 </body>
 </html>
