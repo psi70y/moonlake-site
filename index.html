@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoonLake – A native client for your media server</title>
-  <meta name="description" content="MoonLake is an iPhone, iPad and Mac app for SABnzbd, NZBGet, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr and Newznab indexers.">
+  <meta name="description" content="MoonLake is an iPhone, iPad and Mac app for SABnzbd, NZBGet, Sonarr, Radarr, Lidarr, Seerr, Tautulli, Prowlarr, Bazarr and Newznab indexers.">
   <link rel="icon" href="icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -24,10 +24,10 @@
       </div>
     </header>
 
-    <p>MoonLake brings <strong>SABnzbd, NZBGet, Sonarr, Radarr, Tautulli, Prowlarr and Bazarr</strong>, plus your <strong>Newznab indexers</strong> such as NZBGeek and nzb.life, together in one app for <strong>iPhone, iPad, Mac and the foldable iPhone Duo</strong>. It talks directly to your own servers, at home or away, with no account, no cloud and no tracking.</p>
+    <p>MoonLake brings <strong>SABnzbd, NZBGet, Sonarr, Radarr, Lidarr, Seerr, Tautulli, Prowlarr and Bazarr</strong>, plus your <strong>Newznab indexers</strong> such as NZBGeek and nzb.life, together in one app for <strong>iPhone, iPad, Mac and the foldable iPhone Duo</strong>. It talks directly to your own servers, at home or away, with no account, no cloud and no tracking.</p>
     <p>MoonLake is inspired by <a href="https://github.com/jagandeepbrar/lunasea">LunaSea</a>, rebuilt from scratch as a native app.</p>
 
-    <p class="chips"><span>SABnzbd</span><span>NZBGet</span><span>Sonarr</span><span>Radarr</span><span>Tautulli</span><span>Prowlarr</span><span>Bazarr</span><span>Newznab indexers</span><span>Multiple instances</span><span>Home &amp; Away addresses</span><span>iPhone Duo</span><span>Widget</span><span>Apple Watch</span><span>Demo Mode</span></p>
+    <p class="chips"><span>SABnzbd</span><span>NZBGet</span><span>Sonarr</span><span>Radarr</span><span>Lidarr</span><span>Seerr</span><span>Tautulli</span><span>Prowlarr</span><span>Bazarr</span><span>Newznab indexers</span><span>Multiple instances</span><span>Home &amp; Away addresses</span><span>iPhone Duo</span><span>Widget</span><span>Apple Watch</span><span>Siri &amp; Shortcuts</span><span>Demo Mode</span></p>
 
     <nav class="toc">
       <strong>Contents</strong>
@@ -41,26 +41,30 @@
         <li><a href="#nzbget">NZBGet</a></li>
         <li><a href="#sonarr">Sonarr</a></li>
         <li><a href="#radarr">Radarr</a></li>
+        <li><a href="#lidarr">Lidarr</a></li>
         <li><a href="#interactive">Interactive search</a></li>
         <li><a href="#tautulli">Tautulli</a></li>
         <li><a href="#indexers">Indexer search</a></li>
         <li><a href="#prowlarr">Prowlarr</a></li>
         <li><a href="#bazarr">Bazarr</a></li>
+        <li><a href="#seerr">Seerr</a></li>
         <li><a href="#duo">iPhone Duo, iPad &amp; Mac</a></li>
         <li><a href="#widget">Widget &amp; Apple Watch</a></li>
+        <li><a href="#shortcuts">Siri &amp; Shortcuts</a></li>
         <li><a href="#demo">Demo Mode</a></li>
         <li><a href="#pro">MoonLake Pro</a></li>
         <li><a href="#proplus">MoonLake Pro+</a></li>
         <li><a href="#helper">Live progress helper</a></li>
         <li><a href="#gestures">Gesture cheat sheet</a></li>
         <li><a href="#faq">Questions</a></li>
+        <li><a href="#support">Report a Problem</a></li>
         <li><a href="#privacy">Privacy</a></li>
       </ol>
     </nav>
 
     <h2 id="setup">Getting started</h2>
     <ol>
-      <li>Open <strong>Settings</strong> in the sidebar. Each service has its own section.</li>
+      <li>Open <strong>Settings</strong> in the sidebar, then <strong>Services and Indexers</strong>. Each service has its own section there.</li>
       <li>Tap the service to set up, or <strong>Add Sonarr</strong>, <strong>Add Radarr</strong> and so on.</li>
       <li>Give it a <strong>Name</strong> if you like. Leave it blank to use the service's name.</li>
       <li>Enter its addresses (see <a href="#addresses">Home &amp; Away</a>). <code>192.168.1.10:8989</code> works; MoonLake adds <code>http://</code> for you. Addresses with a path, such as <code>https://example.com/sonarr</code>, are fine for reverse proxies.</li>
@@ -68,7 +72,7 @@
       <li>Tap <strong>Test Connection</strong>. MoonLake checks each address and shows the service's version, or a clear reason it couldn't connect, such as a timeout, the wrong key, an untrusted certificate, or Radarr entered where Sonarr should be. A successful test turns on <strong>Show in Sidebar</strong>.</li>
     </ol>
     <p>API keys and passwords are stored in the Keychain on your device.</p>
-    <figure><img src="images/settings.png" alt="Settings, with a section for each service and its instances"><figcaption>Settings: a section for each service, with its instances.</figcaption></figure>
+    <figure><img src="images/settings.png" alt="Settings, with a section for each service and its instances"><figcaption>Services and Indexers: a section for each service, with its instances.</figcaption></figure>
 
     <h3>iCloud Backup</h3>
     <p>Each of your devices backs up its own MoonLake settings to iCloud: servers and preferences to your iCloud storage, and API keys and passwords to iCloud Keychain (end-to-end encrypted). Because every device has its own backup, setting up a new or erased device never replaces the backup of the one you've been using.</p>
@@ -86,15 +90,19 @@
     <h3>Erase All Settings</h3>
     <p><em>Settings → Erase All Settings</em> removes every server, API key and preference from the device you're using, so MoonLake starts over as if just downloaded. It asks first. Only that device is affected: your other devices, your iCloud Backup and your servers themselves aren't touched, and MoonLake Pro stays unlocked. To bring your settings back, use <strong>Restore from iCloud</strong>.</p>
 
+    <h3>App Lock</h3>
+    <p class="note">App Lock is available from MoonLake 1.2.</p>
+    <p>Turn on <em>Settings → Require Face ID</em> (or Touch ID or Optic ID, depending on your device) and MoonLake asks for it each time you open it, falling back to your device passcode. Turning it on or off asks too.</p>
+
     <h3>Open at Launch</h3>
     <p><em>Settings → Open at Launch</em> picks the screen MoonLake opens on: <strong>Home</strong> (the default), <strong>Search</strong>, any service in the sidebar, or <strong>Last Used</strong> to reopen wherever you were.</p>
 
     <h2 id="instances">Multiple instances</h2>
     <p>With <a href="#pro">MoonLake Pro</a> you can add as many instances of any service as you run (the free version has one of each), for example <strong>Sonarr</strong> and <strong>Sonarr 4K</strong>, <strong>Radarr Anime</strong>, two SABnzbd servers, or Tautulli for two Plex servers.</p>
     <ul>
-      <li><strong>Add:</strong> <em>Settings → Add Sonarr</em> (or any service). New instances are numbered until you name them.</li>
-      <li><strong>Rename:</strong> open the instance in Settings and change <strong>Name</strong>.</li>
-      <li><strong>Delete:</strong> <span class="gesture">swipe left</span> on the instance in Settings, or touch and hold it. MoonLake forgets its addresses and key; nothing changes on the server.</li>
+      <li><strong>Add:</strong> <em>Settings → Services and Indexers → Add Sonarr</em> (or any service). New instances are numbered until you name them.</li>
+      <li><strong>Rename:</strong> open the instance in Services and Indexers and change <strong>Name</strong>.</li>
+      <li><strong>Delete:</strong> <span class="gesture">swipe left</span> on the instance in Services and Indexers, or touch and hold it. MoonLake forgets its addresses and key; nothing changes on the server.</li>
       <li>Each enabled instance gets its own row in the sidebar, under its name.</li>
       <li><strong>Home</strong> combines every Sonarr and Radarr instance. With more than one, each row shows a small tag naming its instance.</li>
       <li><strong>Indexers</strong> work the same way: add NZBGeek and nzb.life as separate indexers and search them together.</li>
@@ -120,11 +128,12 @@
     </ul>
 
     <h2 id="home">Home</h2>
-    <p>Home shows <strong>this week's episodes and movies</strong> from all your Sonarr and Radarr instances, day by day, as LunaSea's dashboard did.</p>
+    <p>Home shows <strong>this week's episodes, movies and albums</strong> from all your Sonarr, Radarr and Lidarr instances, day by day, as LunaSea's dashboard did.</p>
     <figure><img src="images/home.png" alt="Home, with the week strip and a list of this week's releases"><figcaption>Home: the week strip and this week's releases, with artwork behind each row.</figcaption></figure>
     <ul>
-      <li><strong>Week strip:</strong> <strong>‹ ›</strong> change week and <strong>Today</strong> jumps back. Dots under each day show what's on: <span style="color:#5856D6">indigo</span> for episodes, <span style="color:#FF9500">orange</span> for movies. Tap a day to jump to it.</li>
-      <li><strong>Rows:</strong> episodes by air time, then cinema, digital and physical movie releases. Each row has the show's or movie's artwork faded behind it.</li>
+      <li><strong>Week strip:</strong> <strong>‹ ›</strong> change week and <strong>Today</strong> jumps back. Dots under each day show what's on: <span style="color:#5856D6">indigo</span> for episodes, <span style="color:#FF9500">orange</span> for movies, teal for albums. Tap a day to jump to it.</li>
+      <li><strong>Rows:</strong> episodes by air time, then cinema, digital and physical movie releases, and album releases. Each row has the artwork faded behind it.</li>
+      <li><strong>Pending Requests:</strong> with <a href="#seerr">Seerr</a>, requests waiting for your approval sit at the top of Today. Tap the card to review them.</li>
       <li><span class="gesture">Swipe right</span> on a row for <strong>Interactive</strong> or <strong>Automatic</strong> search. A full swipe opens interactive search.</li>
       <li><strong>Tap</strong> a row to open the series or movie.</li>
       <li>Items already downloading show a <strong>progress ring</strong>; items waiting to import show a <strong>tray</strong>.</li>
@@ -225,6 +234,18 @@
       <li><strong>Queue</strong> and the <strong>⋯ menu</strong> work as in Sonarr.</li>
     </ul>
 
+    <h2 id="lidarr">Lidarr</h2>
+    <p class="note">Lidarr is supported from MoonLake 1.2.</p>
+    <p>Add Lidarr in <em>Settings → Services and Indexers → Add Lidarr</em> with its address (port 8686) and API key from <em>Settings → General → Security</em>. It works like Sonarr, for music.</p>
+    <ul>
+      <li><strong>Artists:</strong> searchable, as a List or a square Grid, with filters (All Artists, Monitored, Unmonitored, Missing Tracks, Continuing, Ended) and sorts by Name, Recently Added, Latest or Next Release, Size on Disk or Most Tracks Missing. <span class="gesture">Swipe right</span>: <strong>Automatic Search</strong>; <span class="gesture">swipe left</span>: <strong>Monitor</strong> or <strong>Unmonitor</strong>.</li>
+      <li><strong>Artist:</strong> albums grouped into Albums, EPs, Singles and Other, each with how many tracks you have. <span class="gesture">Swipe right</span> on an album for <strong>Interactive</strong> or <strong>Automatic</strong> search; <span class="gesture">swipe left</span> to monitor or unmonitor it. Its ⋯ menu has <strong>Edit</strong> (monitoring, the quality and metadata profiles, and tags), <strong>Files</strong>, <strong>Refresh &amp; Rescan</strong> and <strong>Delete</strong>.</li>
+      <li><strong>Album:</strong> tracks by disc, with what's downloaded, the album's history, and interactive or automatic search.</li>
+      <li><strong>Missing</strong>, <strong>History</strong> and <strong>Queue</strong> tabs work as in Sonarr.</li>
+      <li><strong>＋ Add Artist:</strong> search MusicBrainz by name, then choose the root folder, quality and metadata profiles, which albums to monitor, whether to monitor new albums, and whether to search straight away. Lidarr's metadata server can be slow, so searches are given extra time.</li>
+      <li><strong>⋯ menu:</strong> <strong>Search All Missing Albums</strong> (asks first), <strong>Refresh All Artists</strong>, <strong>Run RSS Sync</strong>, <strong>Back Up Database</strong> and <strong>Open Web Interface</strong>.</li>
+    </ul>
+
     <h2 id="interactive">Interactive search</h2>
     <p>Interactive search lists every release your indexers found for an episode, season or movie, so you choose exactly what to download, like the 👤 button in Sonarr's and Radarr's web interfaces.</p>
     <figure><img src="images/interactive-search.png" alt="Interactive search results with quality, size and rejection reasons"><figcaption>Interactive search: quality, size, age, indexer and rejection reasons.</figcaption></figure>
@@ -240,7 +261,7 @@
     <figure><img src="images/tautulli-activity.png" alt="Tautulli activity with streams in progress"><figcaption>Activity: who's watching what, and how.</figcaption></figure>
     <ul>
       <li><strong>Activity:</strong> each stream's poster, user and player, progress, <strong>Direct Play / Direct Stream / Transcode (4K → 720p)</strong>, quality, bandwidth and LAN/WAN, refreshed every 5 seconds. <span class="gesture">Swipe left</span>: <strong>Stop</strong> the stream, with an optional message to the viewer (needs Plex Pass).</li>
-      <li><strong>Users:</strong> everyone on your server with avatar, last seen, last played, plays and watch time. Tap a user for their watch time over the last day, week, month and all time, the players they use, and their recent history.</li>
+      <li><strong>Users:</strong> everyone on your server with avatar, last seen, last played, plays and watch time. Tap a user for their watch time over the last day, week, month and all time, the players they use, their recent history, the IP addresses they've played from, and their synced items.</li>
       <li><strong>History:</strong> the last 50 plays, with watch time and watched status. The search field searches your whole history by title or user.</li>
       <li><strong>Stats:</strong> most watched and most popular TV and movies, recently watched, most active users, platforms and libraries, and most concurrent streams. The <strong>Period</strong> menu covers the last 7, 30 or 90 days, or the last year.</li>
     </ul>
@@ -278,6 +299,16 @@
       <li><strong>⋯ menu:</strong> <strong>Search All Missing</strong> episodes or movies. Bazarr works through them in the background.</li>
     </ul>
 
+    <h2 id="seerr">Seerr</h2>
+    <p class="note">Seerr is supported from MoonLake 1.2.</p>
+    <p><a href="https://github.com/seerr-team/seerr">Seerr</a> (the successor to Overseerr and Jellyseerr) lets the people who use your media server ask for movies and shows. MoonLake is for the admin: review and manage their requests and issues from anywhere. Add Seerr in <em>Settings → Services and Indexers → Add Seerr</em> with its address (port 5055) and API key from <em>Settings → General</em>.</p>
+    <ul>
+      <li><strong>Requests:</strong> every request with its poster, who asked and its status, with a <strong>Filter</strong> menu (All, Pending, Approved, Processing, Available, Failed). <span class="gesture">Swipe right</span> on a pending request to <strong>Approve</strong> it, or on a failed one to <strong>Retry</strong>; <span class="gesture">swipe left</span> to <strong>Decline</strong> (asks first) or <strong>Delete</strong>. Tap a request for its details.</li>
+      <li><strong>Issues:</strong> problems people have reported, such as missing subtitles or bad audio. Read and add comments, <strong>Resolve</strong> or <strong>Reopen</strong> them, or delete them.</li>
+      <li><strong>⋯ menu:</strong> <strong>Users</strong> (their request quotas and requests), <strong>Status</strong> (Seerr's version, whether an update is available, and library sync progress) and <strong>Sync Libraries</strong>.</li>
+    </ul>
+    <p class="muted">MoonLake doesn't make requests itself: add things straight to Sonarr, Radarr or Lidarr instead.</p>
+
     <h2 id="duo">iPhone Duo, iPad &amp; Mac</h2>
     <ul>
       <li><strong>Unfolded</strong> (and on iPad and Mac): the sidebar and the content side by side. <strong>Folded</strong>: one screen at a time.</li>
@@ -289,11 +320,20 @@
     <h2 id="widget">Widget &amp; Apple Watch</h2>
     <p>With <a href="#pro">MoonLake Pro</a>, what's on today follows you off the app.</p>
     <ul>
-      <li><strong>Releasing Today widget:</strong> today's episodes and movie releases from all your Sonarr and Radarr instances, with air times and a tick for what's already downloaded. Small, medium and large on the Home Screen, iPad and Mac, plus Lock Screen sizes on iPhone. It moves on to each new day by itself; open MoonLake now and then to pick up changes.</li>
+      <li><strong>Releasing Today widget:</strong> today's episodes, movies and albums from all your Sonarr, Radarr and Lidarr instances, with air times and a tick for what's already downloaded. Small, medium and large on the Home Screen, iPad and Mac, plus Lock Screen sizes on iPhone. It moves on to each new day by itself; open MoonLake now and then to pick up changes.</li>
       <li><strong>Apple Watch:</strong> scroll with the Digital Crown between <strong>Upcoming</strong> (the week's releases by day), <strong>Downloads</strong> (SABnzbd's, or NZBGet's, speed and queue, with Pause and Resume) and <strong>Streams</strong> (who's watching on Plex, via Tautulli).</li>
       <li><strong>Complications:</strong> today's count, the next releases, or a one-line summary on your watch face.</li>
       <li><strong>Downloads on the Lock Screen</strong> (<a href="#proplus">Pro+</a>, from MoonLake 1.1): while SABnzbd or NZBGet is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island.</li>
       <li>The Watch asks your iPhone for live status, so your server addresses and API keys never leave your iPhone.</li>
+    </ul>
+
+    <h2 id="shortcuts">Siri &amp; Shortcuts</h2>
+    <p class="note">Siri and Shortcuts are supported from MoonLake 1.2.</p>
+    <p>MoonLake adds three actions to the Shortcuts app, and you can ask Siri for them by name. They run without opening MoonLake, using the servers you've set up.</p>
+    <ul>
+      <li><strong>Pause Downloads:</strong> pauses SABnzbd and NZBGet, for a number of minutes or until you resume them. "Pause downloads in MoonLake."</li>
+      <li><strong>Resume Downloads:</strong> resumes them. "Resume downloads in MoonLake."</li>
+      <li><strong>What's Releasing Today:</strong> today's episodes, movies and albums. "What's releasing today in MoonLake?"</li>
     </ul>
 
     <h2 id="demo">Demo Mode</h2>
@@ -318,7 +358,7 @@
     <h3>Notifications</h3>
     <ol>
       <li>Open <em>Settings → Notifications</em> and turn on <strong>Notifications</strong>.</li>
-      <li>Under <strong>Servers</strong>, tap <strong>Connect</strong> next to each Sonarr, Radarr, Prowlarr, Bazarr, SABnzbd and NZBGet. MoonLake adds a webhook to that server for you (in Sonarr, Radarr and Prowlarr under <em>Settings → Connect</em>; in Bazarr under <em>Settings → Notifications</em>, as its JSON provider; in SABnzbd under <em>Config → Notifications</em>). There's nothing to type in.</li>
+      <li>Under <strong>Servers</strong>, tap <strong>Connect</strong> next to each Sonarr, Radarr, Lidarr, Prowlarr, Bazarr, Seerr, SABnzbd and NZBGet. MoonLake adds a webhook to that server for you (in Sonarr, Radarr, Lidarr and Prowlarr under <em>Settings → Connect</em>; in Seerr under <em>Settings → Notifications → Webhook</em>; in Bazarr under <em>Settings → Notifications</em>, as its JSON provider; in SABnzbd under <em>Config → Notifications</em>). There's nothing to type in.</li>
       <li><strong>NZBGet</strong> can't send webhooks itself, so Connect installs MoonLake's small NZBGet extension and switches it on (NZBGet 23 or later). It tells MoonLake when a download is added, deleted, finished or failed, sending only the download's name, category and result.</li>
       <li>Tap <strong>Send Test Notification</strong> to check it works.</li>
     </ol>
@@ -326,13 +366,15 @@
     <table>
       <tr><th>Server</th><th>Events</th></tr>
       <tr><td>Sonarr, Radarr</td><td>Grabbed · Imported or Upgraded · Import Needs Attention (a download finished but couldn't be imported, with the reason) · Health Issues</td></tr>
+      <tr><td>Lidarr</td><td>Grabbed · Imported or Upgraded · Import Needs Attention · Download Failed · Health Issues</td></tr>
+      <tr><td>Seerr</td><td>New Requests · Requests Available · Requests Declined or Failed · Issues (reported, commented on, resolved or reopened)</td></tr>
       <tr><td>SABnzbd</td><td>Download Finished · Download Failed · All Downloads Finished · Disk Full</td></tr>
       <tr><td>NZBGet</td><td>Download Finished · Download Failed (or needs attention, with the reason) · All Downloads Finished</td></tr>
       <tr><td>Bazarr</td><td>Subtitles Downloaded: found, upgraded, uploaded, extracted from the video or translated, with the language and provider</td></tr>
       <tr><td>Prowlarr</td><td>Health Issues</td></tr>
     </table>
     <p>Under <strong>Per Server</strong>, give one server its own choices, for example only failures from Sonarr 4K. The rest follow the app-wide switches.</p>
-    <p>Each iPhone and iPad connects for itself and gets its own webhook, so connect on every device you want notifications on. If a webhook address has ever been shared by mistake, <strong>New Webhook Addresses</strong> retires the old ones and updates your servers.</p>
+    <p>Each iPhone and iPad connects for itself and gets its own webhook, so connect on every device you want notifications on. Seerr is the exception: it has room for only one webhook, so the first device to connect owns it and your other devices follow it. If that device disconnects, another takes over. If a webhook address has ever been shared by mistake, <strong>New Webhook Addresses</strong> retires the old ones and updates your servers.</p>
 
     <h3>Downloads on the Lock Screen</h3>
     <p>While SABnzbd or NZBGet is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island. Tap it to open the downloader.</p>
@@ -412,6 +454,9 @@
       <tr><td>Sonarr library</td><td>Automatic search</td><td>Monitor · Unmonitor</td><td>Both</td></tr>
       <tr><td>Sonarr episodes, calendar</td><td>Interactive · Automatic search</td><td>Monitor · Unmonitor (episodes)</td><td>All of these</td></tr>
       <tr><td>Radarr library, calendar</td><td>Interactive · Automatic search</td><td>Monitor · Unmonitor</td><td>All of these</td></tr>
+      <tr><td>Lidarr artists</td><td>Automatic search</td><td>Monitor · Unmonitor</td><td>Both</td></tr>
+      <tr><td>Lidarr albums</td><td>Interactive · Automatic search</td><td>Monitor · Unmonitor</td><td>All of these</td></tr>
+      <tr><td>Seerr requests</td><td>Approve (pending) · Retry (failed)</td><td>Decline · Delete</td><td>All of these</td></tr>
       <tr><td>Sonarr/Radarr queue</td><td>–</td><td>Remove · Remove and Blocklist</td><td>Remove</td></tr>
       <tr><td>Tautulli activity</td><td>–</td><td>Stop stream</td><td>Stop stream</td></tr>
       <tr><td>Prowlarr indexers</td><td>Test</td><td>Enable · Disable</td><td>Both</td></tr>
@@ -427,10 +472,15 @@
     <h3>It can't connect</h3>
     <p>Run <strong>Test Connection</strong> in the instance's settings: it says what's wrong for each address. At home, check that MoonLake has <em>Local Network</em> access in <em>Settings → Privacy &amp; Security</em>. Away, check that your reverse proxy or port forward reaches the service.</p>
 
-    <h2 id="privacy">Privacy</h2>
-    <p>MoonLake has no account and no analytics. It connects only to the servers and indexers you add, plus, if you use <a href="#proplus">Pro+</a> notifications or downloads on the Lock Screen, MoonLake's notification relay, which holds your device's push tokens and nothing else. It keeps your servers' addresses on your device and their keys in the Keychain. Posters and images come from your own Sonarr, Radarr and Tautulli; user avatars come from Plex. MoonLake collects no data at all. Read the full <a href="privacy.html">privacy policy</a>.</p>
+    <h2 id="support">Report a Problem</h2>
+    <p class="note">Report a Problem is available from MoonLake 1.2.</p>
+    <p>If something isn't working, open <em>Settings → Report a Problem</em>, or tap an error message. Describe what happened, and MoonLake writes an email to <a href="mailto:moonlakeapp@geps.au">moonlakeapp@geps.au</a> with your device model, its system version, MoonLake's version and, if you leave <strong>Include Activity Log</strong> on, the last week's activity log. You see the email and send it yourself; nothing is sent otherwise.</p>
+    <p>The <strong>activity log</strong> (<em>Settings → Activity Log</em>) is kept on your device for 7 days. It records what MoonLake asked each server to do and whether it worked, but never your server addresses, API keys, passwords, search terms or instance names.</p>
 
-    <p class="muted">© 2026 GE Project Solutions. Inspired by LunaSea by Jagandeep Brar. MoonLake isn't affiliated with SABnzbd, NZBGet, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr, Plex or any indexer. Contact: <a href="mailto:moonlakeapp@geps.au">moonlakeapp@geps.au</a>.</p>
+    <h2 id="privacy">Privacy</h2>
+    <p>MoonLake has no account and no analytics. It connects only to the servers and indexers you add, plus, if you use <a href="#proplus">Pro+</a> notifications or downloads on the Lock Screen, MoonLake's notification relay, which holds your device's push tokens and nothing else. It keeps your servers' addresses on your device and their keys in the Keychain. Posters and images come from your own Sonarr, Radarr, Lidarr, Seerr and Tautulli; user avatars come from Plex. MoonLake collects no data at all. Read the full <a href="privacy.html">privacy policy</a>.</p>
+
+    <p class="muted">© 2026 GE Project Solutions. Inspired by LunaSea by Jagandeep Brar. MoonLake isn't affiliated with SABnzbd, NZBGet, Sonarr, Radarr, Lidarr, Seerr, Tautulli, Prowlarr, Bazarr, Plex or any indexer. Contact: <a href="mailto:moonlakeapp@geps.au">moonlakeapp@geps.au</a>.</p>
   </main>
 </body>
 </html>

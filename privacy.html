@@ -18,16 +18,18 @@
       </div>
     </header>
 
-    <p class="muted">Effective 7 November 2026. <a href="index.html">← Back to MoonLake</a></p>
+    <p class="muted">Effective 10 November 2026. <a href="index.html">← Back to MoonLake</a></p>
 
     <h2>The short version</h2>
     <p>MoonLake doesn't collect any data about you. There's no account, no analytics, no advertising and no tracking. It talks to the servers you add, and everything you enter stays on your devices. The only exception is the notification relay, used only if you subscribe to MoonLake Pro+ and turn on notifications or downloads on the Lock Screen: it holds this device's push tokens and nothing else.</p>
 
     <h2>What stays on your device</h2>
     <ul>
-      <li><strong>Your servers:</strong> the names and addresses of the services you add (SABnzbd, NZBGet, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr and indexers) are stored on your device.</li>
+      <li><strong>Your servers:</strong> the names and addresses of the services you add (SABnzbd, NZBGet, Sonarr, Radarr, Lidarr, Seerr, Tautulli, Prowlarr, Bazarr and indexers) are stored on your device.</li>
       <li><strong>API keys and passwords</strong> are stored in your device's Keychain.</li>
       <li><strong>Preferences</strong>, such as which screen opens at launch and how libraries are sorted.</li>
+      <li><strong>The activity log:</strong> a record of what MoonLake asked your servers to do and whether it worked, kept for 7 days to help diagnose problems. It never includes server addresses, API keys, passwords, search terms or instance names. It stays on your device unless you choose to attach it to an email with <em>Report a Problem</em>.</li>
+      <li><strong>App Lock:</strong> if you turn it on, Face ID, Touch ID or Optic ID is checked by your device. MoonLake only learns whether it succeeded.</li>
       <li><strong>The Releasing Today widget</strong> reads a list of upcoming release titles and dates that MoonLake saves on your device.</li>
       <li><strong>Apple Watch:</strong> your iPhone sends your Watch that list of releases, and the live download and stream status the Watch asks for. Server addresses and API keys never leave your iPhone.</li>
     </ul>
@@ -38,12 +40,13 @@
 
     <h2>Who MoonLake connects to</h2>
     <ul>
-      <li><strong>The servers you add</strong>, at the Home and Away addresses you enter. Requests carry the API key you provided, as each service requires. Posters and artwork come from your own Sonarr, Radarr and Tautulli.</li>
+      <li><strong>The servers you add</strong>, at the Home and Away addresses you enter. Requests carry the API key you provided, as each service requires. Posters and artwork come from your own Sonarr, Radarr, Lidarr, Seerr and Tautulli.</li>
       <li><strong>Plex</strong>, for user avatars, at the addresses Tautulli provides.</li>
-      <li><strong>TheTVDB and The Movie Database</strong>, for posters in Add Series and Add Movie search results, at the addresses Sonarr and Radarr provide.</li>
+      <li><strong>TheTVDB, The Movie Database and Lidarr's image server</strong> (images.lidarr.audio), for pictures in Add Series, Add Movie and Add Artist search results, at the addresses Sonarr, Radarr and Lidarr provide.</li>
       <li><strong>Websites you choose to open</strong>, such as IMDb or an indexer's release page, open in your browser only when you tap a link.</li>
     </ul>
     <p>MoonLake asks for <strong>Local Network</strong> access so it can reach servers on your home network. It uses that access for nothing else.</p>
+    <p><strong>Siri and Shortcuts</strong> actions run on your device and connect only to your own servers, as the app does.</p>
     <p><strong>Demo Mode</strong> uses sample data built into the app and makes no network connections.</p>
 
     <h2>Notifications (MoonLake Pro+)</h2>
@@ -54,9 +57,13 @@
       <li><strong>Your servers send events to it:</strong> when you connect a server in <em>Settings → Notifications</em>, MoonLake adds a webhook with a private address to that server. The server sends the relay events (such as "Grabbed" with the episode's title), which the relay turns into a notification and passes to Apple's push service for your device straight away. Events aren't stored.</li>
       <li><strong>NZBGet:</strong> NZBGet can't send webhooks, so connecting it installs MoonLake's small extension in NZBGet (downloaded from this website) and adds your device's private address to its settings. It sends the relay only a download's name, category and result. Disconnecting removes your address, and switches the extension off once no device uses it.</li>
       <li><strong>Bazarr:</strong> connecting it adds your device's private address to Bazarr's JSON notification provider. Bazarr then sends the relay the title and the subtitle it found (such as "English subtitles downloaded from opensubtitles").</li>
+      <li><strong>Seerr:</strong> Seerr has room for only one webhook, so the first of your devices to connect owns it and your other devices follow it. The relay keeps which of your devices follow which Seerr, and the name each device gives that Seerr in MoonLake (such as "Seerr"), never its address or API key. Seerr sends the relay a request's or issue's title, who requested or reported it, and any issue comment.</li>
       <li><strong>Limits:</strong> the relay counts events per device per hour, to stop a misconfigured server flooding you, and keeps those counts briefly. Cloudflare may keep standard request logs for a short time.</li>
       <li><strong>Turning it off:</strong> turning off notifications and downloads on the Lock Screen, a Pro+ subscription ending, or Erase All Settings deletes this device's record from the relay. Any webhook left on a server then does nothing; <em>Disconnect</em> in Settings removes it from the server.</li>
     </ul>
+
+    <h2>Support email</h2>
+    <p>If you use <em>Report a Problem</em>, your mail app sends <a href="mailto:moonlakeapp@geps.au">moonlakeapp@geps.au</a> what you wrote, your device model and system version, MoonLake's version and, if you choose, the activity log described above. It's used only to answer you and fix the problem, and is never shared.</p>
 
     <h2>Purchases</h2>
     <p>MoonLake Pro and Pro+ are bought through the App Store. Apple handles the payment; MoonLake only learns whether Pro or Pro+ is unlocked, and never sees your payment details or Apple Account.</p>
@@ -70,7 +77,7 @@
     <h2>Contact</h2>
     <p>Questions about privacy: <a href="mailto:moonlakeapp@geps.au">moonlakeapp@geps.au</a>.</p>
 
-    <p class="muted">© 2026 GE Project Solutions. MoonLake isn't affiliated with SABnzbd, NZBGet, Sonarr, Radarr, Tautulli, Prowlarr, Bazarr, Plex, TheTVDB, The Movie Database or any indexer.</p>
+    <p class="muted">© 2026 GE Project Solutions. MoonLake isn't affiliated with SABnzbd, NZBGet, Sonarr, Radarr, Lidarr, Seerr, Tautulli, Prowlarr, Bazarr, Plex, TheTVDB, MusicBrainz, The Movie Database or any indexer.</p>
   </main>
 </body>
 </html>
