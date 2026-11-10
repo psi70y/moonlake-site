@@ -50,7 +50,6 @@
     <p><strong>Demo Mode</strong> uses sample data built into the app and makes no network connections.</p>
 
     <h2>Notifications (MoonLake Pro+)</h2>
-    <p class="muted">MoonLake Pro+ is available from MoonLake 1.1.</p>
     <p>Notifications and self-starting downloads on the Lock Screen go through MoonLake's notification relay at <strong>relay.geps.au</strong>, run by the developer on Cloudflare. It's only used if you subscribe to Pro+ and turn one of them on.</p>
     <ul>
       <li><strong>What the relay keeps:</strong> a random ID for your device, the push tokens Apple issues for MoonLake on it, which events you want notifications for, whether it's a test build, and your Pro+ subscription as Apple signed it (which plan, when it renews or ends, and Apple's transaction number), so the relay can check the subscription. If you share a live progress helper between your devices, it also keeps which devices share it and whether each is an iPhone or iPad. Nothing that identifies you, and never your server addresses, API keys or passwords.</li>

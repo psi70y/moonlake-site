@@ -91,7 +91,6 @@
     <p><em>Settings → Erase All Settings</em> removes every server, API key and preference from the device you're using, so MoonLake starts over as if just downloaded. It asks first. Only that device is affected: your other devices, your iCloud Backup and your servers themselves aren't touched, and MoonLake Pro stays unlocked. To bring your settings back, use <strong>Restore from iCloud</strong>.</p>
 
     <h3>App Lock</h3>
-    <p class="note">App Lock is available from MoonLake 1.2.</p>
     <p>Turn on <em>Settings → Require Face ID</em> (or Touch ID or Optic ID, depending on your device) and MoonLake asks for it each time you open it, falling back to your device passcode. Turning it on or off asks too.</p>
 
     <h3>Open at Launch</h3>
@@ -121,8 +120,8 @@
     <ul>
       <li><strong>Sidebar:</strong> Home, Search (once an indexer is set up), each enabled service instance, and Settings. On a narrow screen it's the first screen; tap back to return to it.</li>
       <li><strong>Tabs:</strong> services with several views (Queue / History, Library / Calendar / Queue, Activity / Users / History / Stats) switch with the control at the top. MoonLake remembers the tab you used.</li>
-      <li><strong>Settings gear:</strong> the ⚙︎ on any service screen opens that instance's settings.</li>
-      <li><strong>Open Web Interface:</strong> in each service's <strong>⋯ menu</strong> (the 🌐 button on Tautulli), opens the service's own web page in your browser, at whichever address is working, for anything MoonLake doesn't do itself.</li>
+      <li><strong>Settings:</strong> the gear button on any service screen opens that instance's settings.</li>
+      <li><strong>Open Web Interface:</strong> in each service's <strong>⋯ menu</strong> (the globe button on Tautulli), opens the service's own web page in your browser, at whichever address is working, for anything MoonLake doesn't do itself.</li>
       <li><strong>Pull down</strong> to refresh any list. Busy lists (queues, activity) also refresh themselves while they're on screen.</li>
       <li><strong>Notices:</strong> after an action, a short message at the bottom confirms it, e.g. "Searching for The Show", or explains what went wrong.</li>
     </ul>
@@ -160,13 +159,12 @@
     </ul>
     <h3>History</h3>
     <ul>
-      <li>The last 50 jobs: ✅ completed, ❌ failed (with SABnzbd's reason), ⚙︎ still being processed.</li>
+      <li>The last 50 jobs: completed, failed (with SABnzbd's reason) or still being processed.</li>
       <li><strong>Search</strong> your whole history by name.</li>
       <li><span class="gesture">Swipe left</span>: <strong>Remove</strong> from history. For a failed job this also deletes its leftover files; completed downloads are never touched.</li>
     </ul>
 
     <h2 id="nzbget">NZBGet</h2>
-    <p class="note">NZBGet is supported from MoonLake 1.1.</p>
     <p>MoonLake works with <a href="https://nzbget.com">NZBGet</a> as it does with SABnzbd. Add it in <em>Settings</em> with its address (port 6789 unless you've changed it) and its <strong>ControlUsername</strong> and <strong>ControlPassword</strong>, from <em>Settings → Security</em> in NZBGet.</p>
     <h3>Queue</h3>
     <ul>
@@ -208,11 +206,11 @@
     </ul>
     <table>
       <tr><th>Icon</th><th>Means</th></tr>
-      <tr><td>✅ green tick</td><td>Downloaded</td></tr>
+      <tr><td>Green tick</td><td>Downloaded</td></tr>
       <tr><td>Teal progress ring</td><td>Downloading now (orange if there's a problem)</td></tr>
       <tr><td>Tray</td><td>Downloaded, waiting to import</td></tr>
-      <tr><td>❗ red</td><td>Missing: aired and monitored, but not downloaded</td></tr>
-      <tr><td>🕘 clock</td><td>Not aired yet</td></tr>
+      <tr><td>Red exclamation mark</td><td>Missing: aired and monitored, but not downloaded</td></tr>
+      <tr><td>Clock</td><td>Not aired yet</td></tr>
       <tr><td>Crossed-out bookmark</td><td>Unmonitored</td></tr>
     </table>
     <h3>Calendar and Queue</h3>
@@ -235,7 +233,6 @@
     </ul>
 
     <h2 id="lidarr">Lidarr</h2>
-    <p class="note">Lidarr is supported from MoonLake 1.2.</p>
     <p>Add Lidarr in <em>Settings → Services and Indexers → Add Lidarr</em> with its address (port 8686) and API key from <em>Settings → General → Security</em>. It works like Sonarr, for music.</p>
     <ul>
       <li><strong>Artists:</strong> searchable, as a List or a square Grid, with filters (All Artists, Monitored, Unmonitored, Missing Tracks, Continuing, Ended) and sorts by Name, Recently Added, Latest or Next Release, Size on Disk or Most Tracks Missing. <span class="gesture">Swipe right</span>: <strong>Automatic Search</strong>; <span class="gesture">swipe left</span>: <strong>Monitor</strong> or <strong>Unmonitor</strong>.</li>
@@ -247,7 +244,7 @@
     </ul>
 
     <h2 id="interactive">Interactive search</h2>
-    <p>Interactive search lists every release your indexers found for an episode, season or movie, so you choose exactly what to download, like the 👤 button in Sonarr's and Radarr's web interfaces.</p>
+    <p>Interactive search lists every release your indexers found for an episode, season or movie, so you choose exactly what to download, like the person button in Sonarr's and Radarr's web interfaces.</p>
     <figure><img src="images/interactive-search.png" alt="Interactive search results with quality, size and rejection reasons"><figcaption>Interactive search: quality, size, age, indexer and rejection reasons.</figcaption></figure>
     <ul>
       <li>Releases are in Sonarr's or Radarr's own order, best match first, with quality, season-pack badge, custom format score, size, age, seeders and indexer.</li>
@@ -300,7 +297,6 @@
     </ul>
 
     <h2 id="seerr">Seerr</h2>
-    <p class="note">Seerr is supported from MoonLake 1.2.</p>
     <p><a href="https://github.com/seerr-team/seerr">Seerr</a> (the successor to Overseerr and Jellyseerr) lets the people who use your media server ask for movies and shows. MoonLake is for the admin: review and manage their requests and issues from anywhere. Add Seerr in <em>Settings → Services and Indexers → Add Seerr</em> with its address (port 5055) and API key from <em>Settings → General</em>.</p>
     <ul>
       <li><strong>Requests:</strong> every request with its poster, who asked and its status, with a <strong>Filter</strong> menu (All, Pending, Approved, Processing, Available, Failed). <span class="gesture">Swipe right</span> on a pending request to <strong>Approve</strong> it, or on a failed one to <strong>Retry</strong>; <span class="gesture">swipe left</span> to <strong>Decline</strong> (asks first) or <strong>Delete</strong>. Tap a request for its details.</li>
@@ -323,12 +319,11 @@
       <li><strong>Releasing Today widget:</strong> today's episodes, movies and albums from all your Sonarr, Radarr and Lidarr instances, with air times and a tick for what's already downloaded. Small, medium and large on the Home Screen, iPad and Mac, plus Lock Screen sizes on iPhone. It moves on to each new day by itself; open MoonLake now and then to pick up changes.</li>
       <li><strong>Apple Watch:</strong> scroll with the Digital Crown between <strong>Upcoming</strong> (the week's releases by day), <strong>Downloads</strong> (SABnzbd's, or NZBGet's, speed and queue, with Pause and Resume) and <strong>Streams</strong> (who's watching on Plex, via Tautulli).</li>
       <li><strong>Complications:</strong> today's count, the next releases, or a one-line summary on your watch face.</li>
-      <li><strong>Downloads on the Lock Screen</strong> (<a href="#proplus">Pro+</a>, from MoonLake 1.1): while SABnzbd or NZBGet is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island.</li>
+      <li><strong>Downloads on the Lock Screen</strong> (<a href="#proplus">Pro+</a>): while SABnzbd or NZBGet is downloading, a Live Activity shows the current download, progress, speed and time left on the Lock Screen and in the Dynamic Island.</li>
       <li>The Watch asks your iPhone for live status, so your server addresses and API keys never leave your iPhone.</li>
     </ul>
 
     <h2 id="shortcuts">Siri &amp; Shortcuts</h2>
-    <p class="note">Siri and Shortcuts are supported from MoonLake 1.2.</p>
     <p>MoonLake adds three actions to the Shortcuts app, and you can ask Siri for them by name. They run without opening MoonLake, using the servers you've set up.</p>
     <ul>
       <li><strong>Pause Downloads:</strong> pauses SABnzbd and NZBGet, for a number of minutes or until you resume them. "Pause downloads in MoonLake."</li>
@@ -348,10 +343,9 @@
       <li>The <strong>Apple Watch app</strong> and complications.</li>
     </ul>
     <p>Buy it in <em>Settings → MoonLake Pro</em>. It's shared with your family through Family Sharing, and <strong>Restore Purchases</strong> brings it back on a new device.</p>
-    <p>From MoonLake 1.1, <a href="#proplus">MoonLake Pro+</a> adds notifications and downloads on the Lock Screen.</p>
+    <p><a href="#proplus">MoonLake Pro+</a> adds notifications and downloads on the Lock Screen.</p>
 
     <h2 id="proplus">MoonLake Pro+</h2>
-    <p class="note">MoonLake Pro+ is available from MoonLake 1.1.</p>
     <p><strong>MoonLake Pro+</strong> is a monthly subscription (A$1.99 a month, with a one-week free trial). It includes everything in <a href="#pro">Pro</a> and adds two things on iPhone and iPad: <strong>notifications</strong> from your servers, and your <strong>downloads on the Lock Screen</strong> and in the Dynamic Island. Subscribe in <em>Settings → MoonLake Pro</em>, and cancel any time in your Apple Account's subscriptions.</p>
     <p>Both work even when MoonLake is closed, through MoonLake's <strong>notification relay</strong>: your servers tell the relay when something happens, and the relay passes it on to your device through Apple's push service. The relay never has your server addresses, API keys or passwords; see the <a href="privacy.html">privacy policy</a>.</p>
 
@@ -473,7 +467,6 @@
     <p>Run <strong>Test Connection</strong> in the instance's settings: it says what's wrong for each address. At home, check that MoonLake has <em>Local Network</em> access in <em>Settings → Privacy &amp; Security</em>. Away, check that your reverse proxy or port forward reaches the service.</p>
 
     <h2 id="support">Report a Problem</h2>
-    <p class="note">Report a Problem is available from MoonLake 1.2.</p>
     <p>If something isn't working, open <em>Settings → Report a Problem</em>, or tap an error message. Describe what happened, and MoonLake writes an email to <a href="mailto:moonlakeapp@geps.au">moonlakeapp@geps.au</a> with your device model, its system version, MoonLake's version and, if you leave <strong>Include Activity Log</strong> on, the last week's activity log. You see the email and send it yourself; nothing is sent otherwise.</p>
     <p>The <strong>activity log</strong> (<em>Settings → Activity Log</em>) is kept on your device for 7 days. It records what MoonLake asked each server to do and whether it worked, but never your server addresses, API keys, passwords, search terms or instance names.</p>
 
